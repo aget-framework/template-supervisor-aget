@@ -1,0 +1,56 @@
+# Agent Configuration
+
+## Project Context
+{{YOUR_PROJECT_NAME}} - {{YOUR_PROJECT_DESCRIPTION}}
+
+## Session Management Protocols
+
+### Wake Up Protocol
+When user says "wake up" or "hey":
+- Show current directory and status
+- Check git status
+- Report readiness
+
+### Wind Down Protocol
+When user says "wind down" or "save work":
+- Commit changes
+- Create session notes
+- Show completion
+
+### Sign Off Protocol
+When user says "sign off" or "all done":
+- Quick save and exit
+- No questions
+
+## Directory Structure
+- `.aget/` - Framework metadata and configuration
+- `.aget/evolution/` - Decision and discovery tracking
+- `.aget/checkpoints/` - Agent state checkpoints
+- `src/` - Agent source code (if applicable)
+- `workspace/` - Internal workspace for explorations
+- `products/` - Public products the agent maintains
+- `data/` - Persistent data storage
+- `docs/` - Documentation
+- `tests/` - Test suite
+
+## Vocabulary Note
+- `workspace/` = Your agent's private workspace for exploration
+- `products/` = Public products your agent creates/maintains for others
+- `src/` = Source code for your agent/tool (if applicable)
+- `.aget/evolution/` = Decision and discovery tracking
+
+## Available Patterns
+Run `aget list` to see available patterns you can apply.
+
+## Efficiency Rules
+- **>3 similar operations**: Use Task tool or batch operations
+- **"read docs"**: Use `patterns/documentation/smart_reader.py` (local) or Task tool
+- **Multiple file operations**: Batch with Task tool
+- **Check patterns**: `.aget/patterns/session/EFFICIENT_STARTS.md` for optimal approaches
+- **Self-contained**: Per ARCH-001, all patterns must be installed locally
+
+## Custom Rules
+{{ADD_YOUR_CUSTOM_RULES_HERE}}
+
+---
+*Generated from my-AGET-template - Customized on {{DATE}}*

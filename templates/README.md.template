@@ -1,0 +1,66 @@
+# {{YOUR_PROJECT_NAME}}-aget: {{YOUR_TAGLINE}}
+
+> **{{VISIBILITY}} Repository** - {{YOUR_PURPOSE}}
+
+## What This Is
+
+**{{YOUR_PROJECT_NAME}}-aget** is {{YOUR_DESCRIPTION}}
+
+## Purpose
+
+{{YOUR_MISSION_STATEMENT}}
+
+## Current Status
+
+### Active Focus
+- {{YOUR_CURRENT_PRIORITY_1}}
+- {{YOUR_CURRENT_PRIORITY_2}}
+- {{YOUR_CURRENT_PRIORITY_3}}
+
+### Innovation Pipeline
+```
+Experiment (workspace/)
+    → Validate (tests/)
+    → Extract (products/)
+    → Share or keep private
+```
+
+## Structure
+
+```
+{{YOUR_PROJECT_NAME}}-aget/
+├── workspace/        # Experiments and exploration
+├── products/         # Proven patterns and tools
+├── patterns/         # Reusable patterns library
+├── governance/       # Strategy and decisions
+├── vision/           # Future planning
+├── sessions/         # Session documentation
+├── .aget/           # AGET framework structure
+│   └── evolution/   # Decision tracking
+└── tests/           # Validation suite
+```
+
+## Philosophy
+
+{{YOUR_PHILOSOPHY_POINTS}}
+
+## Getting Started
+
+```bash
+# Wake up to start
+wake up
+
+# Explore in workspace/
+# Track decisions in .aget/evolution/
+# Share products in products/
+```
+
+## Status
+
+- **Created**: {{CREATION_DATE}}
+- **Nature**: {{PROJECT_NATURE}}
+- **Owner**: {{YOUR_NAME}}
+
+---
+
+*{{YOUR_PROJECT_NAME}}-aget: {{YOUR_CLOSING_STATEMENT}}*

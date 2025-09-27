@@ -1,0 +1,51 @@
+{
+  "timestamp": "2025-09-26T19:00:00",
+  "type": "architecture_decision",
+  "decision": "Create separate aget-aget-template for contributor labs",
+  "rationale": {
+    "problem": "Main template serves 99% who just want agents, not governance tools",
+    "solution": "Separate template for the 1% who want pattern laboratories",
+    "benefit": "Clean separation of concerns"
+  },
+  "naming_convention": {
+    "rule": "All pattern labs MUST end with '-aget'",
+    "examples": [
+      "my-aget-aget",
+      "alice-aget-aget",
+      "corp-patterns-aget",
+      "research-lab-aget"
+    ],
+    "your_choice": "Keep 'aget-aget' as the original reference"
+  },
+  "architecture": {
+    "layer_1": "aget-cli-agent-template (for creating agents)",
+    "layer_2": "aget-aget-template (for creating pattern labs)",
+    "instances": "Individual *-aget labs (like aget-aget)",
+    "flow": "Patterns flow from instances → main template"
+  },
+  "contents": {
+    "pattern_tools": "Extraction and validation utilities",
+    "governance_structure": "Templates for requirements, standards",
+    "contribution_workflow": "Scripts for upstream PRs",
+    "meta_evolution": "Track governance decisions"
+  },
+  "benefits": {
+    "main_template": "Stays simple and focused",
+    "contributors": "Get specialized tools",
+    "ecosystem": "Clear pathway to contribution",
+    "learning": "Template itself teaches pattern extraction"
+  },
+  "implementation": {
+    "step_1": "Extract generic structure from aget-aget",
+    "step_2": "Create public aget-aget-template repo",
+    "step_3": "Document in main template for contributors",
+    "step_4": "aget-aget becomes reference implementation"
+  },
+  "success_metrics": [
+    "Number of *-aget labs created",
+    "Quality improvement in PRs",
+    "Contributor onboarding time",
+    "Pattern diversity"
+  ],
+  "philosophy": "Every gardener needs a greenhouse, but not everyone needs to build one from scratch"
+}

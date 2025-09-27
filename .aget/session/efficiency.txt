@@ -1,0 +1,18 @@
+# Session Efficiency Tracker
+
+## Tool Usage for Common Operations
+
+2025-09-27 12:15: 10 tools for "read docs" (initial session)
+2025-09-27 12:22: 8 tools for "read docs" (separate instance)
+2025-09-27 12:43: 8 tools for "read docs" (attempted smart_reader.py - FILE NOT FOUND)
+
+## Target Efficiency
+- "read docs": 2-3 tools (wake + Task tool)
+- "check projects": 2-3 tools (wake + Task tool)
+- "bulk operations": 1 Task tool per group
+
+## Notes
+- Created after identifying consistent inefficiency pattern
+- Goal: 60-80% reduction in tool calls for common operations
+- ISSUE FOUND: smart_reader.py exists at /Users/aget-framework/github/patterns/documentation/smart_reader.py
+- RESOLUTION: Updated all references to use absolute path to parent directory's smart_reader.py

@@ -1,0 +1,36 @@
+{
+  "entries": [
+    {
+      "filename": "2025-09-26-155859-215449-DISC.md",
+      "type": "discovery",
+      "title": "Pre-installation pattern discovered: Beyond welcom...",
+      "created": "2025-09-26T15:58:59.215953"
+    },
+    {
+      "filename": "2025-09-26-153352-727380-LEARN.md",
+      "type": "learning",
+      "title": "RKB_analytics-aget creation revealed: 1) Need glob...",
+      "created": "2025-09-26T15:33:52.727932"
+    },
+    {
+      "filename": "2025-09-25-014435-591072-DEC.md",
+      "type": "decision",
+      "title": "Pre-transition checkpoint: AGET v2...",
+      "created": "2025-09-25T01:44:35.591604"
+    },
+    {
+      "filename": "2025-09-25-005618-482177-DISC.md",
+      "type": "discovery",
+      "title": "Pattern validator experiment reveals 3/8 AGET patt...",
+      "created": "2025-09-25T00:56:18.482509"
+    }
+  ],
+  "stats": {
+    "total": 4,
+    "by_type": {
+      "discovery": 2,
+      "decision": 1,
+      "learning": 1
+    }
+  }
+}

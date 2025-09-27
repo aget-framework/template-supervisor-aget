@@ -1,0 +1,28 @@
+# AGET files
+.aget/backups/
+.aget/cache/
+.aget/checkpoints/
+.session_state.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Environment
+.env
+venv/
+env/
+
+# Agent workspace
+workspace/.tmp/
+workspace/*.log
+workspace/__pycache__/
+
+# User-specific files (not for template)
+.claude/
+.cursor/
+.vscode/
+.idea/
+.DS_Store

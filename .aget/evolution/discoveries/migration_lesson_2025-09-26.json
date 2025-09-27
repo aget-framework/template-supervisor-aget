@@ -1,0 +1,48 @@
+{
+  "timestamp": "2025-09-26T17:15:00",
+  "type": "migration_pattern",
+  "discovery": "AGET migration creates components but doesn't auto-activate",
+  "context": {
+    "project": "RKB_infrastructure → RKB_infra-aget",
+    "migration_type": "partial_to_complete",
+    "starting_point": "85% complete",
+    "agent_created": "InfraGuard"
+  },
+  "problems_identified": [
+    "Identity file created (AGENTS_ENHANCED.md) but not activated",
+    "User must manually replace AGENTS.md",
+    "No post-migration verification",
+    "Evolution directories empty - no seed data",
+    "Missing .aget/config.json for CLI integration",
+    "No personality-specific wake commands",
+    "First session used generic response instead of agent personality"
+  ],
+  "impact": {
+    "user_experience": "Confusing - migration 'complete' but agent not active",
+    "value_delivery": "Delayed - capabilities present but not utilized",
+    "first_impression": "Generic instead of personalized"
+  },
+  "root_cause": "Migration focused on creating structure, not activation",
+  "solution": {
+    "immediate": [
+      "Auto-replace AGENTS.md during migration",
+      "Create activate.sh script",
+      "Add verify.sh for post-migration check"
+    ],
+    "structural": [
+      "Add .aget/identity.json for personality",
+      "Create .aget/config.json for CLI",
+      "Seed evolution with initial discoveries",
+      "Add personality-specific Makefile targets"
+    ]
+  },
+  "pattern_learned": "Migration must be end-to-end: structure → activation → verification → first-use",
+  "template_improvements": [
+    "Step 6: Auto-activation (not optional)",
+    "Step 7: Verification checklist",
+    "Step 8: First-run experience",
+    "Include seed data in evolution directories",
+    "Generate personality-specific commands"
+  ],
+  "success_criteria": "User should wake up agent and immediately see personality, not generic response"
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "architecture": "self-contained",
+  "upgrade_policy": "intentional",
+  "failure_mode": "fail-fast",
+  "required_patterns": [
+    {
+      "name": "documentation/smart_reader.py",
+      "source": "/Users/aget-framework/github/patterns/documentation/smart_reader.py",
+      "version": "1.0.0",
+      "status": "installed",
+      "description": "Handles file/directory reading without EISDIR errors",
+      "installed_date": "2025-09-27T13:09:37.171197",
+      "installed_from": "/Users/aget-framework/github/patterns/documentation/smart_reader.py"
+    },
+    {
+      "name": "meta/project_scanner.py",
+      "source": "/Users/aget-framework/github/patterns/meta/project_scanner.py",
+      "version": "1.0.0",
+      "status": "installed",
+      "description": "Scans projects for AGET compatibility",
+      "installed_date": "2025-09-27T13:09:37.175736",
+      "installed_from": "/Users/aget-framework/github/patterns/meta/project_scanner.py"
+    }
+  ],
+  "required_scripts": [
+    {
+      "name": "session_protocol.py",
+      "source": "local",
+      "version": "2.0.0",
+      "status": "installed",
+      "description": "Wake/wind-down/sign-off protocols"
+    }
+  ],
+  "optional_patterns": [
+    {
+      "name": "bridge/extract_output.py",
+      "source": "/Users/aget-framework/github/patterns/bridge/extract_output.py",
+      "status": "not_found",
+      "description": "Extracts workspace experiments to products"
+    }
+  ],
+  "missing_dependencies": [
+    "scripts/aget_housekeeping_protocol.py",
+    "scripts/validate_patterns.py",
+    "scripts/health_check.py",
+    "patterns/bridge/extract_output.py"
+  ],
+  "installation_commands": {
+    "copy_pattern": "cp -r {source} patterns/{name}",
+    "copy_script": "cp {source} scripts/{name}",
+    "verify": "python3 scripts/verify_dependencies.py"
+  },
+  "notes": {
+    "self_contained": "Each AGET must have its own copy of all dependencies",
+    "no_auto_update": "Changes in parent repos must NOT affect this AGET",
+    "fail_fast": "Missing dependencies must halt execution immediately",
+    "upgrade_process": "AGET can request updates via 'aget upgrade-pattern {name}'"
+  }
+}

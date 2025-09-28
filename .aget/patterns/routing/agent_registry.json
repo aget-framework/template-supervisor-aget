@@ -1,0 +1,200 @@
+{
+  "version": "1.0.0",
+  "last_scan": "2025-09-28T13:33:46.076609",
+  "workspace": "/Users/aget-framework/github",
+  "agents": {
+    "llm-manager-aget": {
+      "path": "/Users/aget-framework/github/llm-manager-aget",
+      "name": "llm-manager-aget",
+      "discovered": "2025-09-28T13:33:45.970471",
+      "type": "aget-project",
+      "capabilities": [
+        "session-management",
+        "git",
+        "template"
+      ],
+      "version": null,
+      "status": "active",
+      "has_claude_md": true,
+      "repository": "aget-framework/llm-manager-aget"
+    },
+    "my-OpenAI-DeepResearch-aget": {
+      "path": "/Users/aget-framework/github/my-OpenAI-DeepResearch-aget",
+      "name": "my-OpenAI-DeepResearch-aget",
+      "discovered": "2025-09-28T13:33:45.987164",
+      "type": "aget-project",
+      "capabilities": [
+        "session-management"
+      ],
+      "version": null,
+      "status": "active",
+      "has_claude_md": true,
+      "repository": "aget-framework/my-OpenAI-DeepResearch-aget"
+    },
+    "my-spotify-analyst-aget": {
+      "path": "/Users/aget-framework/github/my-spotify-analyst-aget",
+      "name": "my-spotify-analyst-aget",
+      "discovered": "2025-09-28T13:33:46.001510",
+      "type": "aget-project",
+      "capabilities": [
+        "session-management",
+        "git",
+        "python",
+        "github-integration",
+        "documentation",
+        "routing-hub"
+      ],
+      "version": null,
+      "status": "active",
+      "has_claude_md": true,
+      "has_patterns": true,
+      "pattern_types": [
+        "documentation",
+        "housekeeping",
+        "adr",
+        "bridge",
+        "recovery",
+        "meta",
+        "github",
+        "routing",
+        "data",
+        "session"
+      ],
+      "repository": "aget-framework/spotify-analysis"
+    },
+    "aget-cli-agent-template": {
+      "path": "/Users/aget-framework/github/aget-cli-agent-template",
+      "name": "aget-cli-agent-template",
+      "discovered": "2025-09-28T13:33:46.013522",
+      "type": "aget-project",
+      "capabilities": [
+        "session-management",
+        "git",
+        "python",
+        "template"
+      ],
+      "version": null,
+      "status": "active",
+      "has_claude_md": true,
+      "has_patterns": true,
+      "pattern_types": [
+        "organization"
+      ],
+      "repository": "aget-framework/aget"
+    },
+    "my-GITHUB-aget": {
+      "path": "/Users/aget-framework/github/my-GITHUB-aget",
+      "name": "my-GITHUB-aget",
+      "discovered": "2025-09-28T13:33:46.027474",
+      "type": "aget-project",
+      "capabilities": [
+        "session-management",
+        "git",
+        "python"
+      ],
+      "version": null,
+      "status": "active",
+      "has_claude_md": true,
+      "repository": "aget-framework/my-github-aget"
+    },
+    "my-AGET-aget": {
+      "path": "/Users/aget-framework/github/my-AGET-aget",
+      "name": "my-AGET-aget",
+      "discovered": "2025-09-28T13:33:46.040166",
+      "type": "aget-project",
+      "capabilities": [
+        "session-management",
+        "git",
+        "python",
+        "template",
+        "github-integration",
+        "routing-hub"
+      ],
+      "version": null,
+      "status": "active",
+      "has_claude_md": true,
+      "has_patterns": true,
+      "pattern_types": [
+        "organization",
+        "quality",
+        "github",
+        "routing",
+        "backup",
+        "issues",
+        "validation",
+        "session"
+      ],
+      "repository": "aget-framework/aget"
+    },
+    "my-example-aget": {
+      "path": "/Users/aget-framework/github/my-example-aget",
+      "name": "my-example-aget",
+      "discovered": "2025-09-28T13:33:46.051885",
+      "type": "aget-project",
+      "capabilities": [
+        "session-management",
+        "git",
+        "python",
+        "github-integration",
+        "documentation",
+        "routing-hub"
+      ],
+      "version": null,
+      "status": "active",
+      "has_claude_md": true,
+      "has_patterns": true,
+      "pattern_types": [
+        "research",
+        "documentation",
+        "example",
+        "beauty",
+        "github",
+        "routing",
+        "backup",
+        "session"
+      ],
+      "repository": "aget-framework/private-personal-musings"
+    },
+    "my-AGET-template": {
+      "path": "/Users/aget-framework/github/my-AGET-template",
+      "name": "my-AGET-template",
+      "discovered": "2025-09-28T13:33:46.063603",
+      "type": "aget-project",
+      "capabilities": [
+        "session-management",
+        "git",
+        "template",
+        "github-integration",
+        "documentation",
+        "routing-hub"
+      ],
+      "version": null,
+      "status": "active",
+      "has_claude_md": true,
+      "has_patterns": true,
+      "pattern_types": [
+        "documentation",
+        "identity",
+        "quality",
+        "security",
+        "creativity",
+        "meta",
+        "safety",
+        "github",
+        "naming",
+        "governance",
+        "routing",
+        "migration",
+        "validation",
+        "session"
+      ],
+      "repository": "aget-framework/my-AGET-template"
+    }
+  },
+  "statistics": {
+    "total": 8,
+    "active": 8,
+    "with_patterns": 5,
+    "hub_capable": 4
+  }
+}

@@ -104,6 +104,26 @@ Examples of things that might graduate:
 - **Nature**: Private innovation lab
 - **Contribution**: Selective, not mandatory
 - **Value**: Learning > Publishing
+- **Version Floor**: v2.5.0 (minimum version for all new agents as of 2025-10-04)
+
+## Version Policy
+
+**v2.5.0 as Floor** (Effective 2025-10-04):
+
+All new agents created from this template must be at **v2.5.0 or higher**. This baseline includes:
+- Contract testing framework (7 tests per agent)
+- Identity protocol (agent_name, instance_type, domain fields)
+- Deployment verification standards (L93)
+- Gate 2.5 validation (identity field checks)
+
+When creating a new agent from this template:
+1. Copy the entire template structure
+2. Update `.aget/version.json` to v2.5.0 or higher
+3. Set identity fields (agent_name = directory name, instance_type, domain)
+4. Copy contract tests to new agent
+5. Run tests to validate before first commit
+
+**Rationale**: Fleet-wide migration to v2.5.0 completed 2025-10-04. All agents now baseline at this version to ensure consistent validation and deployment practices.
 
 ---
 

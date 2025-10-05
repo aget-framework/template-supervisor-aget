@@ -1,109 +1,115 @@
-# my-aget-aget: Personal AGET Pattern Laboratory
+# template-supervisor-aget: Supervisor AGET Template
 
-> **Private Repository** - My space for AGET experimentation
+> **aget-framework Organization** - Private until supervisor patterns stabilize
 >
-> One person's approach to pattern extraction and framework contribution
+> Base template for creating supervisor AGETs with fleet coordination capabilities
 
 ## What This Is
 
-**my-aget-aget** is MY personal pattern laboratory for the AGET framework. This is where I manually extract patterns from my agents, experiment with enhancements, and validate before contributing to the public template.
+**template-supervisor-aget** is the official supervisor template for the AGET framework. This template provides the foundation for creating supervisor AGETs that coordinate multiple worker agents across portfolios.
 
-This is not THE official AGET governance - it's just MY personal experimentation space. Anyone can create their own `*-aget-aget` laboratory!
+This template extends the worker agent template with additional capabilities for fleet management, multi-agent orchestration, and release coordination.
 
 ## Purpose
 
-Not everything needs to be public. my-aget-aget is where I:
-- Test wild ideas that might break things
-- Build personal tools that may stay personal
-- Explore patterns that might graduate to the public template
-- Learn from failures without public exposure
+This template is designed for creating supervisor AGETs that:
+- Coordinate multiple worker agents across portfolios
+- Manage fleet-wide version migrations and upgrades
+- Orchestrate multi-agent releases with gated execution
+- Track patterns and learnings across agent fleet
+- Provide centralized issue management and triage
 
 ## Current Status
 
-### Today's Discoveries (2025-09-26)
-- ✅ X-aget independence principle (each repo must be self-contained)
-- ✅ Testable principles framework ("if you can't test it, it's not a principle")
-- ✅ `aget validate` command specification
-- ✅ Naming convention standard (`my-`, `our-`, `the-` prefixes)
-- ✅ Fixed dangerous cross-repository dependencies
-- ✅ 4 new products ready for template graduation
+**Version**: v2.5.0 (Floor established 2025-10-04)
+**Privacy**: Private until supervisor patterns validated
+**Organization**: aget-framework
+**Publication Plan**: Will be made public when supervisor coordination patterns stabilize
 
-### Active Focus
-- Pattern extraction from real AGET usage
-- Testing patterns across multiple agents
-- Documenting lessons in evolution/
-- Preparing contributions to public template
+### Key Capabilities
+- ✅ Fleet coordination and management
+- ✅ Gated release management (substantial change protocol)
+- ✅ Multi-agent version migration orchestration
+- ✅ Pattern deployment and versioning
+- ✅ Session and evolution tracking
+- ✅ GitHub issue management with auto-routing
+- ✅ Portfolio-based agent organization
 
-### Innovation Pipeline
+### Template Structure
 ```
-Experiment (workspace/)
-    → Validate (tests/)
-    → Extract (products/)
-    → Maybe contribute to AGET (selective)
-    → Or keep private (perfectly valid)
-```
-
-## Structure
-
-```
-my-aget-aget/
-├── workspace/        # Wild experiments happen here
-├── products/         # Proven patterns ready for graduation
-├── patterns/         # Discovered patterns from real usage
-├── governance/      # Personal strategy and decisions
-├── vision/          # Future possibilities and frameworks
-├── sessions/        # Session documentation and learnings
-├── .aget/           # AGET structure (yes, even this is an AGET!)
-│   └── evolution/   # Learning from experiments
-└── tests/           # Validation and testing
+template-supervisor-aget/
+├── workspace/        # Internal workspace for explorations
+├── products/         # Public products the supervisor maintains
+├── .aget/            # Framework metadata and configuration
+│   ├── evolution/    # Decision and discovery tracking
+│   ├── checkpoints/  # Supervisor state snapshots
+│   ├── patterns/     # Coordination patterns
+│   └── registry/     # Agent fleet registry
+└── tests/            # Contract tests and validation
 ```
 
-## Philosophy
+## Template Philosophy
 
-1. **Freedom to Fail**: Not everything needs to work
-2. **Private by Default**: Share only what adds value
-3. **Learn Everything**: Failed experiments teach most
-4. **Quality Gates**: Only proven patterns graduate
+1. **Coordination Over Execution**: Supervisors orchestrate, workers execute
+2. **Gate Discipline**: Every substantial change requires GO/NOGO checkpoints
+3. **Fleet Visibility**: Centralized tracking of agent versions and status
+4. **Pattern Evolution**: Continuous learning captured in evolution logs
+5. **Explicit Decisions**: Document trade-offs and rationale
 
-## Relationship to AGET
+## Relationship to Worker Template
 
-- **[aget-cli-agent-template](https://github.com/aget-framework/aget)**: Public framework for everyone
-- **my-aget-aget**: My personal pattern laboratory and innovation space
-- Some experiments → Graduate to public template
-- Some experiments → Remain private tools
-- All experiments → Learning captured in evolution/
+- **[template-worker-aget](https://github.com/aget-framework/template-worker-aget)**: Base template for worker agents
+- **template-supervisor-aget**: Extends worker template with coordination capabilities
+- **Inheritance**: Supervisor includes all worker protocols (wake, wind down, etc.)
+- **Additional**: Fleet registry, multi-agent orchestration, release management
 
-See [PUBLIC_FRAMEWORK_POINTER.md](PUBLIC_FRAMEWORK_POINTER.md) for details on the contribution flow.
+## Supervisor-Specific Capabilities
 
-## What Lives Here
+What makes this different from worker template:
 
-Examples of things that might stay private:
-- Personal workflow optimizations
-- Domain-specific patterns (like music analysis)
-- Experimental features too wild for public
-- Failed attempts that taught us something
+**Fleet Management**:
+- Agent registry with capability discovery
+- Version tracking across portfolios
+- Migration orchestration with gated execution
+- Compliance monitoring and reporting
 
-Examples of things that might graduate:
-- Proven patterns that help everyone
-- Bug fixes discovered through experimentation
-- Performance optimizations
-- Universal workflow improvements
+**Coordination Patterns**:
+- Multi-agent release coordination
+- Issue triage and routing
+- Pattern deployment across fleet
+- Centralized GitHub issue management
+
+**Decision Tracking**:
+- Evolution logs for major decisions
+- Checkpoint system for supervisor state
+- Session metadata with quantitative metrics
+- Post-release deployment verification
 
 ## Getting Started
 
 ```bash
-# This is a private space for experimentation
-# Wake up to start exploring
-# Build freely in workspace/
-# Track learnings in evolution/
+# Clone this template to create your own supervisor
+git clone https://github.com/aget-framework/template-supervisor-aget.git my-supervisor-name-AGET
+
+# Update identity in .aget/version.json
+# - agent_name: "my-supervisor-name-AGET"
+# - instance_type: "AGET" (supervisors are action-taking)
+# - domain: your coordination domain
+
+# Initialize your fleet registry
+# Copy contract tests and validate
+
+# Wake up and start coordinating
+claude code
+wake up
 ```
 
-## Status
+## Creation Details
 
-- **Created**: 2025-09-25
-- **Nature**: Private innovation lab
-- **Contribution**: Selective, not mandatory
-- **Value**: Learning > Publishing
+- **Created**: 2025-09-25 (as my-AGET-template)
+- **Transferred**: 2025-10-05 (to aget-framework org, renamed to template-supervisor-aget)
+- **Nature**: Official supervisor template for aget-framework
+- **Privacy**: Private until supervisor patterns stabilize (working towards public release)
 - **Version Floor**: v2.5.0 (minimum version for all new agents as of 2025-10-04)
 
 ## Version Policy
@@ -125,6 +131,20 @@ When creating a new agent from this template:
 
 **Rationale**: Fleet-wide migration to v2.5.0 completed 2025-10-04. All agents now baseline at this version to ensure consistent validation and deployment practices.
 
+## Documentation
+
+Key documentation for supervisor coordination:
+- `.aget/docs/ISSUE_ACTION_PROTOCOL_v1.0.md` - Issue lifecycle and routing
+- `.aget/docs/SESSION_METADATA_STANDARD_v1.0.md` - Session documentation
+- `.aget/evolution/` - Decision logs and lessons learned
+- `AGENTS.md` - Full agent configuration (symlinked to CLAUDE.md)
+
+## Support
+
+For questions about using this template:
+- **Issues**: File to aget-framework/template-supervisor-aget when public
+- **Current**: Private template, direct communication with maintainers
+
 ---
 
-*my-aget-aget: My personal AGET laboratory where patterns are discovered through real usage*
+*template-supervisor-aget: Official supervisor template for AGET framework - extends worker template with fleet coordination capabilities*

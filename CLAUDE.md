@@ -1,7 +1,7 @@
 # Agent Configuration
 
 ## Project Context
-my-AGET-template - AGET v2.0.0 compliant agent template
+my-AGET-template - AGET v2.5.0 compliant agent template
 
 ## Session Management Protocols
 

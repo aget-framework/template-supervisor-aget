@@ -1,8 +1,16 @@
 {
-  "aget_version": "2.0.0",
+  "aget_version": "2.5.0",
   "created": "2025-09-24",
-  "updated": "2025-09-28",
+  "updated": "2025-10-06",
   "template": "agent",
   "tier": "basic",
-  "migration_from": "2.0.0-alpha"
+  "migration_from": "2.0.0-alpha",
+  "agent_name": "my-AGET-template",
+  "instance_type": "template",
+  "domain": "supervisor-template",
+  "validation_framework_enabled": true,
+  "migrated_to_v25": "2025-10-06",
+  "migration_history": [
+    "v2.0.0 -> v2.5.0: 2025-10-06 (validation framework + contract tests + identity fields)"
+  ]
 }

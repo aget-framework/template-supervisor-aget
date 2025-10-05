@@ -5,7 +5,7 @@
   "template": "agent",
   "tier": "basic",
   "migration_from": "2.0.0-alpha",
-  "agent_name": "supervisor-aget-template",
+  "agent_name": "template-supervisor-aget",
   "instance_type": "template",
   "domain": "supervisor-template",
   "validation_framework_enabled": true,

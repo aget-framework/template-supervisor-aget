@@ -134,10 +134,16 @@ When creating a new agent from this template:
 ## Documentation
 
 Key documentation for supervisor coordination:
-- `.aget/docs/ISSUE_ACTION_PROTOCOL_v1.0.md` - Issue lifecycle and routing
-- `.aget/docs/SESSION_METADATA_STANDARD_v1.0.md` - Session documentation
-- `.aget/evolution/` - Decision logs and lessons learned
-- `AGENTS.md` - Full agent configuration (symlinked to CLAUDE.md)
+- `AGENTS.md` - Full agent configuration (symlinked to CLAUDE.md for backward compatibility)
+- `CUSTOMIZATION_GUIDE.md` - How to adapt template for your fleet
+- `PREREQUISITES.md` - System requirements and setup
+- `products/DEMONSTRATION_GUIDE.md` - How to demonstrate supervisor capabilities
+- `products/EXAMPLE_3_GATE_PLAN.md` - Simple 3-gate plan example
+- `products/EXAMPLE_7_GATE_PLAN.md` - Complex 7-gate fleet migration example
+- `.aget/evolution/` - Evolution logs with examples (L001, D001, DISC001)
+- `.aget/registry/agents.yaml` - Fleet registry template
+- `sessions/EXAMPLE_SESSION.md` - Session documentation example
+- `tests/README.md` - Contract testing guide
 
 ## Support
 

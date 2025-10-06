@@ -2,7 +2,10 @@
 .aget/backups/
 .aget/cache/
 .aget/checkpoints/
+.aget/session/
 .session_state.json
+.session_state.backup
+.aget/compliance_report.json
 
 # Python
 __pycache__/

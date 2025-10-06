@@ -1,0 +1,84 @@
+# Fleet Registry
+# Track agents supervised by this coordinator
+
+# This is a template showing how to track your agent fleet.
+# Replace example agents with your actual agents.
+
+agents:
+  - name: example-worker-agent
+    type: aget  # read-only agent
+    version: "2.5.0"
+    domain: data-analysis
+    status: active
+    repository: https://github.com/your-org/example-worker-agent
+    managed_since: "2025-10-06"
+    capabilities:
+      - Data analysis and reporting
+      - Read-only operations
+    notes: Example worker agent for demonstration
+
+  - name: example-action-AGET
+    type: AGET  # action-taking agent
+    version: "2.5.0"
+    domain: automation
+    status: active
+    repository: https://github.com/your-org/example-action-AGET
+    managed_since: "2025-10-06"
+    capabilities:
+      - GitHub operations (PR creation, merging)
+      - Deployment automation
+      - File system modifications
+    notes: Example action agent with write permissions
+
+  - name: example-research-aget
+    type: aget
+    version: "2.4.0"  # older version
+    domain: research
+    status: migration-pending
+    repository: https://github.com/your-org/example-research-aget
+    managed_since: "2025-09-15"
+    capabilities:
+      - Web research and analysis
+      - Document summarization
+    notes: Pending migration to v2.5.0 - scheduled for next sprint
+
+portfolios:
+  - name: data-portfolio
+    description: Agents focused on data operations
+    agents:
+      - example-worker-agent
+      - example-research-aget
+    lead: example-worker-agent
+
+  - name: automation-portfolio
+    description: Agents with write/modify capabilities
+    agents:
+      - example-action-AGET
+    lead: example-action-AGET
+
+# Fleet Statistics
+# Update these manually or via automation
+fleet_stats:
+  total_agents: 3
+  active: 2
+  migration_pending: 1
+  version_distribution:
+    "2.5.0": 2
+    "2.4.0": 1
+  last_updated: "2025-10-06"
+
+# Migration Tracking
+# Track version migrations across fleet
+migrations:
+  - version_from: "2.4.0"
+    version_to: "2.5.0"
+    agents_pending:
+      - example-research-aget
+    agents_completed: []
+    target_date: "2025-10-15"
+
+# Notes on Registry Maintenance
+# - Update agent versions after migrations
+# - Track status changes (active → deprecated → archived)
+# - Document portfolio restructuring
+# - Use this as source of truth for fleet coordination

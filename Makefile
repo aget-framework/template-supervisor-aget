@@ -40,10 +40,10 @@ install:  ## Install dependencies
 	pip install pytest pytest-cov
 
 lint:  ## Run linting checks
-	python -m ruff check src/ patterns/ tests/
+	python -m ruff check src/ tests/
 
 format:  ## Format code
-	python -m ruff format src/ patterns/ tests/
+	python -m ruff format src/ tests/
 
 check:  ## Run all checks (tests, lint)
 	$(MAKE) lint

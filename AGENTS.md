@@ -170,7 +170,7 @@ Large configuration files (>40k characters) cause performance degradation:
    - Commands you use frequently
    - Quick references (1-2 lines per concept)
 
-### Template Maintenance
+### For Template Maintainers
 
 **For template maintainers** (aget-framework contributors):
 
@@ -180,6 +180,7 @@ Large configuration files (>40k characters) cause performance degradation:
 - **Examples**: Link to external docs rather than embedding lengthy examples
 
 **Pattern**: L146 (Configuration Size Management)
+**Full details**: `.aget/evolution/L146_configuration_size_management.md` (in supervisor instances)
 
 ## Planning Protocols
 

@@ -1,0 +1,108 @@
+# Changelog
+
+All notable changes to AGET will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [2.7.0] - 2025-10-13 - "Portfolio Governance"
+
+### Added
+- **Portfolio Governance System**:
+  - `.aget/portfolios/` directory for fleet portfolio manifests
+  - Portfolio-aware supervision across organizational boundaries
+  - Classification enforcement (very_personal, confidential, private, public)
+  - Cross-portfolio coordination protocols
+
+- **Organizational Memory Patterns**:
+  - Fleet-wide learning discovery framework
+  - Standardized session metadata (v1.0) for coordination
+  - Cross-agent knowledge sharing and pattern deployment
+
+- **Learning Discovery Framework**:
+  - Systematic learning capture from multi-agent operations
+  - Learning reference validation for fleet deployments
+  - Pattern deployment tracking and versioning
+
+### Changed
+- Enhanced wake protocol with fleet portfolio awareness
+- Updated identity protocol to include portfolio coordinator status
+- Improved multi-agent session coordination
+
+### Documentation
+- Portfolio manifests guide for supervisors
+- Learning document standard (v1.0) for fleet coordination
+- Session metadata standard for supervisor operations
+
+### Compatibility
+- Backward compatible with v2.6
+- New portfolio field optional for non-fleet supervisors
+- Existing supervisor agents work without portfolio assignment
+
+## [2.6.0] - 2025-10-11 - "Configuration Management"
+
+### Added
+- **Configuration Size Management**:
+  - 40,000 character limit for AGENTS.md (L146)
+  - Size monitoring for complex supervisor configurations
+  - Content extraction strategies for fleet coordination configs
+
+- **Framework Positioning**:
+  - Clarified supervisor role in AGET ecosystem
+  - Updated positioning documentation
+  - Landscape analysis for multi-agent coordination
+
+- **Contract Test Validation**:
+  - Enhanced contract test suite for supervisor agents
+  - Fleet coordination validation
+  - Multi-agent operation compliance testing
+
+### Documentation
+- Configuration size management for supervisors
+- Framework positioning analysis
+- Supervisor-specific best practices
+
+### Compatibility
+- Fully backward compatible with v2.5
+- No breaking changes to supervisor contracts
+
+## [2.5.0] - 2025-10-06 - "Validation"
+
+### Added
+- **Supervisor Template Creation**:
+  - Initial supervisor template for fleet coordination
+  - Multi-agent orchestration capabilities
+  - Fleet management protocols
+
+- **Contract Testing Framework**:
+  - Core contract tests for supervisor identity
+  - Automated validation of supervisor configuration
+  - Fleet coordination validation
+
+- **Identity Protocol**:
+  - Standardized agent_name field (must match directory)
+  - Instance type: "AGET" (supervisors are action-taking)
+  - Domain field for coordination specialization
+  - Recursive supervision model support (L99)
+
+- **Validation Framework**:
+  - Version compliance checking
+  - Configuration consistency validation
+  - Deployment verification standards (L93)
+  - Fleet state verification
+
+### Documentation
+- Supervisor template creation guide
+- Contract test documentation
+- Identity protocol standards for supervisors
+- Multi-agent coordination patterns
+
+### Compatibility
+- New template (no backward compatibility concerns)
+- v2.5.0 established as supervisor version floor
+- All new supervisor agents must pass contract tests
+
+---
+
+*Supervisor template tracks versions from v2.5.0 onwards (template creation release)*
+*For earlier framework history, see worker template CHANGELOG*

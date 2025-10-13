@@ -1,19 +1,22 @@
 {
-  "aget_version": "2.6.0",
+  "aget_version": "2.7.0",
   "created": "2025-09-24",
-  "updated": "2025-10-12",
+  "updated": "2025-10-13",
   "template": "agent",
   "tier": "basic",
   "migration_from": "2.0.0-alpha",
   "agent_name": "template-supervisor-aget",
   "instance_type": "template",
-  "domain": "supervisor-template",
+  "domain": "supervision",
+  "portfolio": null,
   "validation_framework_enabled": true,
   "configuration_size_management_enabled": true,
   "migrated_to_v25": "2025-10-06",
   "migrated_to_v26": "2025-10-12",
+  "migrated_to_v27": "2025-10-13",
   "migration_history": [
     "v2.0.0 -> v2.5.0: 2025-10-06 (validation framework + contract tests + identity fields)",
-    "v2.5.0 -> v2.6.0: 2025-10-12 (configuration size management + L146 governance)"
+    "v2.5.0 -> v2.6.0: 2025-10-12 (configuration size management + L146 governance)",
+    "v2.6.0 -> v2.7.0: 2025-10-13 (portfolio governance + fleet coordination patterns)"
   ]
 }

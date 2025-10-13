@@ -21,7 +21,7 @@ This template is designed for creating supervisor AGETs that:
 
 ## Current Status
 
-**Version**: v2.5.0 (Floor established 2025-10-04)
+**Version**: v2.7.0 "Portfolio Governance" (Updated 2025-10-13)
 **Privacy**: Private until supervisor patterns validated
 **Organization**: aget-framework
 **Publication Plan**: Will be made public when supervisor coordination patterns stabilize

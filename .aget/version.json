@@ -1,7 +1,7 @@
 {
-  "aget_version": "2.8.0",
+  "aget_version": "2.10.0",
   "created": "2025-09-24",
-  "updated": "2025-10-13",
+  "updated": "2025-12-13",
   "template": "agent",
   "tier": "basic",
   "migration_from": "2.0.0-alpha",
@@ -17,6 +17,7 @@
   "migration_history": [
     "v2.0.0 -> v2.5.0: 2025-10-06 (validation framework + contract tests + identity fields)",
     "v2.5.0 -> v2.6.0: 2025-10-12 (configuration size management + L146 governance)",
-    "v2.6.0 -> v2.7.0: 2025-10-13 (portfolio governance + fleet coordination patterns)"
+    "v2.6.0 -> v2.7.0: 2025-10-13 (portfolio governance + fleet coordination patterns)",
+    "v2.8.0 -> v2.10.0: 2025-12-13 (Capability Composition Architecture)"
   ]
 }

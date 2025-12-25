@@ -1,6 +1,6 @@
 # Agent Configuration
 
-@aget-version: 2.7.0
+@aget-version: 2.12.0
 
 ## Agent Compatibility
 This configuration follows the AGENTS.md open-source standard for universal agent configuration.
@@ -24,7 +24,7 @@ AGET occupies a unique niche in the agent framework landscape:
 - Human-centric governance (gated releases, evidence-based planning)
 
 ## Project Context
-template-supervisor-aget - Supervisor AGET template - v2.8.0
+template-supervisor-aget - Supervisor AGET template - v2.12.0
 
 **Note**: Update this section when instantiating template:
 - Change project name to your supervisor agent name

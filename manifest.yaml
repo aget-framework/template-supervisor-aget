@@ -1,0 +1,38 @@
+apiVersion: aget.framework/v1
+kind: TemplateManifest
+
+metadata:
+  name: template-supervisor-aget
+  version: 1.0.0
+  agent_type: Supervisor
+  created: "2025-12-25"
+  author: private-aget-framework-AGET
+  status: active
+  description: Supervisor template for fleet coordination and governance
+
+composition:
+  base_template: supervisor
+  capabilities:
+    - name: memory-management
+      version: ">=1.0.0"
+    - name: domain-knowledge
+      version: ">=1.0.0"
+      config:
+        domain: fleet-supervision
+    - name: structured-outputs
+      version: ">=1.0.0"
+      config:
+        formats:
+          - markdown
+          - yaml
+    - name: collaboration
+      version: ">=1.0.0"
+    - name: org-kb
+      version: ">=1.0.0"
+  composition_rules:
+    conflict_resolution: error
+
+validation:
+  dag_validated: true
+  conflicts_checked: true
+  last_validated: "2025-12-25"

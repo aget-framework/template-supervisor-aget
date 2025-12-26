@@ -106,5 +106,13 @@ This naming convention:
 4. **Establishes clear patterns** for new instances
 
 ---
+
+## Related Specifications
+
+- **File Naming**: For file and artifact naming conventions, see [AGET_FILE_NAMING_CONVENTIONS.md](../../aget/specs/AGET_FILE_NAMING_CONVENTIONS.md)
+- **Controlled Vocabulary**: For AGET terminology, see [AGET_CONTROLLED_VOCABULARY.md](../../aget/specs/AGET_CONTROLLED_VOCABULARY.md)
+
+---
 *Naming convention established: 2025-09-25*
+*Updated: 2025-12-20 (added file naming reference)*
 *This is an official governance decision from aget-aget*

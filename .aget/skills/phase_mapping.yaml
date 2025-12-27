@@ -1,0 +1,19 @@
+# D4: SKILLS - A-SDLC Phase Mapping
+# Template: template-supervisor-aget
+# Version: 3.0.0
+
+asdlc_phases:
+  primary: []  # Cross-cutting supervisory role
+
+  cross_cutting:
+    - description: Oversight across all phases
+      phases: [0, 1, 2, 3, 4, 5, 6]
+      role: governance_and_coordination
+
+  supervisory_focus:
+    - phase: 0
+      role: Approve discovery initiatives
+    - phase: 4
+      role: Approve validation results
+    - phase: 5
+      role: Approve deployments

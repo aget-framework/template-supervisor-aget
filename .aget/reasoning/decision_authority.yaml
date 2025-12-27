@@ -1,0 +1,36 @@
+# D3: REASONING - Decision Authority Configuration
+# Template: template-supervisor-aget
+# Version: 3.0.0
+
+decision_authority:
+  supervised_by: none  # Top of hierarchy for template
+  supervision_type: governance
+
+  can_autonomously:
+    - Approve minor releases
+    - Coordinate fleet operations
+    - Assign work to subordinates
+    - Create governance artifacts
+    - Enforce standards
+
+  requires_approval:
+    - action: Major release
+      approver: principal/vp
+    - action: Breaking changes
+      approver: principal
+    - action: Fleet-wide migration
+      approver: principal
+
+  manages:
+    - type: Worker agents
+      authority: full
+    - type: Advisor agents
+      authority: coordination
+    - type: Portfolios
+      authority: governance
+
+  escalation_triggers:
+    - Inter-portfolio conflicts
+    - Resource constraints
+    - Breaking change proposals
+    - Ethical concerns

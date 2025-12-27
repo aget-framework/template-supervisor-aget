@@ -1,0 +1,38 @@
+# D4: SKILLS - Capabilities Configuration
+# Template: template-supervisor-aget
+# Version: 3.0.0
+
+capabilities:
+  core:
+    - id: capability-governance-rigorous
+      version: "1.0.0"
+      description: Full protocols for all non-trivial work
+
+    - id: capability-session-protocols
+      version: "1.0.0"
+      description: Wake, wind-down, sign-off
+
+    - id: capability-evolution-tracking
+      version: "1.0.0"
+      description: Learning document capture
+
+  supervisory:
+    - id: capability-fleet-coordination
+      version: "1.0.0"
+      description: Coordinate multiple agents
+
+    - id: capability-portfolio-governance
+      version: "1.0.0"
+      description: Manage portfolio boundaries
+
+    - id: capability-release-approval
+      version: "1.0.0"
+      description: Approve minor/major releases
+
+    - id: capability-work-delegation
+      version: "1.0.0"
+      description: Assign and track work
+
+    - id: capability-standard-enforcement
+      version: "1.0.0"
+      description: Enforce organizational standards

@@ -1,0 +1,26 @@
+# D5: CONTEXT - Relationships Configuration
+# Template: template-supervisor-aget
+# Version: 3.0.0
+
+relationships:
+  supervisor:
+    reference: null  # Template (or principal for instances)
+    type: governance
+
+  subordinates:
+    - type: Worker
+      interaction: Assign work, review output
+    - type: Developer
+      interaction: Coordinate development
+    - type: Advisor
+      interaction: Request guidance
+    - type: Spec_Engineer
+      interaction: Review specifications
+
+  peers:
+    - type: Supervisor
+      interaction: Inter-portfolio coordination
+
+  external:
+    - type: Principal/User
+      interaction: Report status, escalate decisions

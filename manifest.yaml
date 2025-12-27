@@ -1,38 +1,77 @@
-apiVersion: aget.framework/v1
-kind: TemplateManifest
+# AGET Template Manifest v3.0
+# Template: template-supervisor-aget
+# 5D Composition Architecture
 
-metadata:
+manifest_version: "3.0"
+
+template:
   name: template-supervisor-aget
-  version: 1.0.0
-  agent_type: Supervisor
-  created: "2025-12-25"
+  archetype: Supervisor
+  description: Supervisory template for fleet coordination and governance
+  version: 3.0.0
+  created: "2025-12-27"
   author: private-aget-framework-AGET
-  status: active
-  description: Supervisor template for fleet coordination and governance
+  inherits_from: template-worker-aget
 
 composition:
-  base_template: supervisor
-  capabilities:
-    - name: memory-management
-      version: ">=1.0.0"
-    - name: domain-knowledge
-      version: ">=1.0.0"
-      config:
-        domain: fleet-supervision
-    - name: structured-outputs
-      version: ">=1.0.0"
-      config:
-        formats:
-          - markdown
-          - yaml
-    - name: collaboration
-      version: ">=1.0.0"
-    - name: org-kb
-      version: ">=1.0.0"
-  composition_rules:
-    conflict_resolution: error
+  persona:
+    archetype: "$ref: .aget/persona/archetype.yaml"
+    style: "$ref: .aget/persona/style.yaml"
+    governance: capability-governance-rigorous
 
-validation:
-  dag_validated: true
-  conflicts_checked: true
-  last_validated: "2025-12-25"
+  memory:
+    structure: "$ref: .aget/memory/"
+    inheritance:
+      - domain
+      - organizational
+      - experiential
+
+  reasoning:
+    decision_authority: "$ref: .aget/reasoning/decision_authority.yaml"
+    planning: "$ref: .aget/reasoning/planning_patterns.yaml"
+
+  skills:
+    capabilities: "$ref: .aget/skills/capabilities.yaml"
+    phases: "$ref: .aget/skills/phase_mapping.yaml"
+
+  context:
+    relationships: "$ref: .aget/context/relationships.yaml"
+    scope: "$ref: .aget/context/scope.yaml"
+
+capabilities:
+  - capability-governance-rigorous
+  - capability-session-protocols
+  - capability-evolution-tracking
+  - capability-fleet-coordination
+  - capability-portfolio-governance
+  - capability-release-approval
+  - capability-work-delegation
+
+asdlc_phases:
+  primary: [0, 5]
+  secondary: [4]
+  cross_cutting: []
+
+inviolables:
+  inherited:
+    - id: INV-CORE-001
+      source: aget_framework
+      statement: The SYSTEM shall NOT execute Destructive_Action WITHOUT User_Confirmation
+    - id: INV-CORE-002
+      source: aget_framework
+      statement: The SYSTEM shall NOT modify Production_Data WITHOUT Explicit_Authorization
+
+  agent_specific:
+    - id: INV-SUP-001
+      statement: The SYSTEM shall NOT approve Major_Release WITHOUT Principal_Approval
+      rationale: Archetype-specific safety constraint
+      enforcement: validation
+
+contract_tests:
+  required:
+    - test_version_json_required_fields
+    - test_manifest_v3_schema
+    - test_5d_directories_exist
+  recommended:
+    - test_governance_files_exist
+    - test_identity_json_valid

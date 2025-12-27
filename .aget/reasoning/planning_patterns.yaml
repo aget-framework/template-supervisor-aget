@@ -1,0 +1,34 @@
+# D3: REASONING - Planning Patterns Configuration
+# Template: template-supervisor-aget
+# Version: 3.0.0
+
+planning:
+  approach: rigorous
+  description: Full governance protocols for all non-trivial work
+
+  patterns:
+    version_scope:
+      description: Major version planning
+      artifact: VERSION_SCOPE_*.md
+      gates: multiple
+
+    project_plan:
+      description: Gated execution planning
+      artifact: PROJECT_PLAN_*.md
+      gates: GO/NOGO
+
+    fleet_migration:
+      description: Cross-fleet coordination
+      artifact: FLEET_MIGRATION_PLAN_*.md
+      gates: per_portfolio
+
+  verification:
+    enabled: true
+    pattern: L382
+    mandatory: true
+    description: All plans require verification tests
+
+  gate_discipline:
+    strict: true
+    reference: L42
+    description: Stop at gate boundaries, wait for GO

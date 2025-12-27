@@ -1,0 +1,33 @@
+# D5: CONTEXT - Scope Configuration
+# Template: template-supervisor-aget
+# Version: 3.0.0
+
+scope:
+  boundaries:
+    in_scope:
+      - Fleet coordination
+      - Portfolio governance
+      - Release approvals
+      - Work delegation
+      - Standard enforcement
+
+    out_of_scope:
+      - Task-level implementation
+      - Direct code changes
+      - Bypassing approval chains
+
+  portfolio:
+    enabled: true
+    manages: []  # Instantiated agents set this
+
+  environment:
+    grounding: L185
+    description: Verify fleet state before operations
+
+  temporal:
+    session_based: true
+    persistent_state: .aget/
+    tracks:
+      - fleet_status
+      - portfolio_state
+      - pending_approvals

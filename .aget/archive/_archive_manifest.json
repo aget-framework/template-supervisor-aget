@@ -1,0 +1,24 @@
+{
+  "migration_date": "2025-12-27T11:50:55.522631",
+  "template": "template-supervisor-aget",
+  "from_version": "2.x",
+  "to_version": "3.0",
+  "archived_items": [
+    {
+      "source": ".aget/vocabulary/",
+      "target": ".aget/archive/_legacy_dirs/vocabulary",
+      "type": "directory"
+    },
+    {
+      "source": ".aget/dependencies.json",
+      "target": ".aget/archive/_legacy_files/dependencies.json",
+      "type": "file"
+    }
+  ],
+  "deleted_items": [
+    {
+      "path": "docs/",
+      "type": "directory"
+    }
+  ]
+}

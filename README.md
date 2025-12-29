@@ -21,7 +21,7 @@ This template is designed for creating supervisor AGETs that:
 
 ## Current Status
 
-**Version**: v2.7.0 "Portfolio Governance" (Updated 2025-10-13)
+**Version**: v3.0.0 "5D Composition Architecture"
 **Privacy**: Private until supervisor patterns validated
 **Organization**: aget-framework
 **Publication Plan**: Will be made public when supervisor coordination patterns stabilize
@@ -34,6 +34,33 @@ This template is designed for creating supervisor AGETs that:
 - ✅ Session and evolution tracking
 - ✅ GitHub issue management with auto-routing
 - ✅ Portfolio-based agent organization
+
+---
+
+## Specification
+
+| Attribute | Value |
+|-----------|-------|
+| **Governed By** | [AGET_TEMPLATE_SPEC v3.1](https://github.com/aget-framework/aget/blob/main/specs/AGET_TEMPLATE_SPEC.md) |
+| **Foundation** | [WORKER_TEMPLATE_SPEC v1.0](https://github.com/aget-framework/aget/blob/main/specs/WORKER_TEMPLATE_SPEC_v1.0.yaml) |
+| **Archetype** | Supervisor |
+| **Manifest Version** | 3.0 |
+| **Contract Tests** | 29 tests |
+
+### Key Capabilities
+
+| ID | Capability | Pattern |
+|----|------------|---------|
+| CAP-001 | Wake Protocol | event-driven |
+| CAP-009 | Wind Down Protocol | event-driven |
+| CAP-031 | Portfolio Coordination | optional |
+| CAP-SUP | Fleet Management | ubiquitous |
+
+Validate compliance: `pytest tests/ -v`
+
+See: [Full specification](https://github.com/aget-framework/aget/tree/main/specs)
+
+---
 
 ### Template Structure
 ```

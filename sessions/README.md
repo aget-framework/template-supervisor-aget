@@ -1,75 +1,75 @@
 # Sessions Directory
 
-This directory stores session notes from your supervisor agent's work sessions.
+This directory contains session notes and handoff documentation.
 
-## Purpose
+## Contents
 
-Session notes create a timeline of work completed, capturing:
-- What was accomplished in each session
-- Decisions made and rationale
-- Blockers encountered
-- Patterns discovered
-- Time invested
+| Pattern | Purpose |
+|---------|---------|
+| `session_YYYY-MM-DD_*.md` | Session notes |
+| `HANDOFF_*.md` | Inter-session continuity documents |
 
-## Format
+## Session Protocol
 
-Use Session Metadata Standard v1.0 (if available in `.aget/docs/`):
+### Wake Up (Session Start)
 
-**Filename**: `SESSION_YYYY-MM-DD_description.md` or `SESSION_YYYY-MM-DD.md`
+1. Execute `python3 .aget/patterns/session/wake_up.py`
+2. Review pending work from previous sessions
+3. Create session note with date stamp
 
-**Structure**:
-```markdown
----
-session_id: SESSION_YYYY-MM-DD_description
-date: YYYY-MM-DD
-time_start: "HH:MM"
-time_end: "HH:MM"
-duration_minutes: NN
-aget_version: "X.Y.Z"
-agent_name: "your-supervisor-aget"
-session_type: tactical|strategic|exploratory
----
+### Wind Down (Session End)
 
-# Session: YYYY-MM-DD - Description
+1. Execute `python3 .aget/patterns/session/wind_down.py`
+2. Update session note with work completed
+3. Create HANDOFF if work continues to next session
 
-## Objectives
-What were we trying to accomplish?
+## Guidance
 
-## Work Completed
-- Task 1: Status/outcome
-- Task 2: Status/outcome
+### Session Note Content
 
-## Decisions Made
-Key decisions and rationale
+| Section | Content |
+|---------|---------|
+| Context | What session was about |
+| Work Completed | What was accomplished |
+| Decisions Made | Key decisions and rationale |
+| Blocked Items | What couldn't be completed and why |
+| Next Actions | What needs to happen next |
 
-## Blockers / Issues
-Anything blocking progress
+### HANDOFF Content
 
-## Patterns Discovered
-Insights worth capturing (may become evolution logs)
+| Section | Content |
+|---------|---------|
+| Current State | Where work stands |
+| Critical Context | What next session needs to know |
+| Files Modified | Key files touched |
+| Pending Items | What remains to be done |
+| Learnings | L-docs captured during session |
 
-## Next Steps
-What to work on next session
+### Naming Convention
+
+```
+session_YYYY-MM-DD_<topic>.md
+session_YYYY-MM-DD_HHMM.md  (if multiple sessions per day)
+HANDOFF_<topic>_YYYY-MM-DD.md
 ```
 
-## Best Practices
+## Anti-Patterns
 
-**Timing**: Create during wind-down (end of session)
+| Anti-Pattern | Why Bad | Instead |
+|--------------|---------|---------|
+| No session notes | Context lost between sessions | Always create session note |
+| Missing HANDOFF | Continuity broken | Create HANDOFF for ongoing work |
+| Too verbose | Hard to scan | Focus on decisions and actions |
 
-**Frequency**: One per session (not per commit)
+## Cross-References
 
-**Location**: Always in `sessions/` directory (never in root)
-
-**Granularity**: Capture enough detail for "future you" to understand what happened 6 months later
-
-**Quantitative**: Include metrics when possible (files changed, time spent, tests passing)
-
-## Template Usage
-
-This directory is empty in the template. Your session notes will appear here as you work with your supervisor agent.
-
-**First Session**: After your first work session, run wind-down protocol to create your first session note.
+| Document | Relationship |
+|----------|--------------|
+| `.aget/patterns/session/wake_up.py` | Session initialization |
+| `.aget/patterns/session/wind_down.py` | Session finalization |
+| `planning/` | PROJECT_PLANs referenced in sessions |
 
 ---
 
-**Session notes are your work log. Document consistently, reference frequently.**
+*Template version: 1.0.0 (L403 pattern)*
+*Created by: private-aget-framework-AGET*

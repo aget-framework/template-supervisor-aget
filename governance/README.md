@@ -1,42 +1,54 @@
-# Governance Documentation
+# Governance Directory
 
-This directory contains the strategic governance documents for the AGET framework.
+This directory contains governance artifacts that define agent boundaries and authority.
 
-## What Lives Here
+## Required Files (CAP-INST-002)
 
-### Core Governance Documents
-- **[CHARTER.md](CHARTER.md)** - Defines AGET-AGET's role as strategic governance center
-- **[NEXT_ACTIONS.md](NEXT_ACTIONS.md)** - Strategic roadmap and planned evolutions
-- **[NAMING_CONVENTIONS.md](NAMING_CONVENTIONS.md)** - How we name things consistently
+| File | Purpose |
+|------|---------|
+| `CHARTER.md` | What this agent IS and IS NOT |
+| `MISSION.md` | Goals and key results |
+| `SCOPE_BOUNDARIES.md` | Authority limits and escalation paths |
 
-### Discovery & Requirements 🔴
-- **[DISCOVERY_TRACKER.md](DISCOVERY_TRACKER.md)** - Real-time lessons learned from usage
-- **[FRAMEWORK_REQUIREMENTS.md](FRAMEWORK_REQUIREMENTS.md)** - Requirements to implement in template
-- **[USER_PREREQUISITES.md](USER_PREREQUISITES.md)** - What users need before starting
-- **[AGENT_BEHAVIOR_LESSONS.md](AGENT_BEHAVIOR_LESSONS.md)** - Agent behavior patterns to avoid/encourage
+## Optional Files
 
-### Governance Model
-AGET-AGET serves as:
-1. **Strategic Decision Maker** - Decides future direction of aget-cli-agent-template
-2. **Vision Holder** - Maintains coherent philosophy and architecture
-3. **Gatekeeper** - Approves what goes into official template
-4. **Reference Laboratory** - Shows how to run a private AGET lab
+| File | Purpose |
+|------|---------|
+| `NAMING_CONVENTIONS.md` | Agent-specific naming rules |
+| `DECISION_MATRIX.md` | Authority delegation rules |
+| `MEMORY_VISION.md` | Memory architecture principles |
 
-## Relationship to Public Framework
-- Strategic decisions made here → Implemented in aget-cli-agent-template
-- Experiments validated here → May graduate to public framework
-- Vision defined here → Guides framework evolution
+## Guidance
 
-## Decision Flow
-```
-AGET-AGET (Strategic Vision)
-    ↓
-Experiments & Validates
-    ↓
-Graduates to aget-cli-agent-template
-    ↓
-Community Forks & Customizes
-```
+### What Goes Here
+
+- **Operational boundaries** — not technical specifications
+- **Authority definitions** — what decisions this agent can make autonomously
+- **Escalation rules** — when to defer to supervisor or principal
+
+### Maintenance
+
+- Update `CHARTER.md` when scope changes
+- Review `MISSION.md` quarterly for KR relevance
+- Update `SCOPE_BOUNDARIES.md` when authority model changes
+
+### Anti-Patterns
+
+| Anti-Pattern | Why Bad | Instead |
+|--------------|---------|---------|
+| Technical specs in CHARTER | Conflates governance with implementation | Put specs in `.aget/specs/` |
+| Vague MISSION goals | Not measurable | Use SMART criteria |
+| Missing escalation paths | Agent operates beyond authority | Define explicit boundaries |
+
+## Cross-References
+
+| Document | Relationship |
+|----------|--------------|
+| `.aget/identity.json` | North Star alignment |
+| `CLAUDE.md` | Operational instructions |
+| `AGENTS.md` | Public-facing identity |
 
 ---
-*Governance documents migrated from aget-cli-agent-template on 2025-09-25*
+
+*Template version: 1.0.0 (L403 pattern)*
+*Created by: private-aget-framework-AGET*

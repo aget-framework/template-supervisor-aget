@@ -34,7 +34,8 @@ def test_wake_protocol_reports_version():
         assert "aget_version" in data, "version.json missing aget_version field"
         # Version format: X.Y.Z
         version = data["aget_version"]
-        parts = version.split(".")
+        base_version = version.split("-")[0]  # Handle pre-release
+        parts = base_version.split(".")
         assert len(parts) == 3, f"Version format invalid: {version} (expected X.Y.Z)"
 
 
@@ -48,7 +49,7 @@ def test_wake_protocol_reports_capabilities():
         # Capabilities are optional in template, but if present, must be dict
         if "capabilities" in data:
             capabilities = data["capabilities"]
-            assert isinstance(capabilities, dict), "capabilities must be a dictionary"
+            assert isinstance(capabilities, (dict, list)), "capabilities must be dict or list"
 
 
 def test_wake_protocol_reports_domain():

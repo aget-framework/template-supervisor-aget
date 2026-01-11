@@ -576,6 +576,18 @@ When releasing new version or detecting version drift:
 - Check: All version-bearing files show consistent version
 - Alert: If drift detected, follow Version Promotion Protocol
 
+### Cross-Machine Pre-Flight (L457)
+Before fleet migrations across machines, sync framework first.
+
+**When to run**: Switching machines, framework not synced >7 days, agent reports "version doesn't exist"
+
+**Quick steps**:
+```bash
+cd /path/to/aget-framework/aget && git pull origin main
+```
+
+**Full procedure**: See [FLEET_MIGRATION_GUIDE_v3.md § Cross-Machine Pre-Flight](https://github.com/aget-framework/aget/blob/main/docs/FLEET_MIGRATION_GUIDE_v3.md#cross-machine-pre-flight-l457-cap-mig-017)
+
 ## Directory Structure
 - `.aget/` - Framework metadata and configuration
 - `.aget/evolution/` - Decision and discovery tracking

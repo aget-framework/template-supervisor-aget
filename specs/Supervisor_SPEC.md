@@ -1,16 +1,18 @@
-# Supervisor Capability Specification
+# Supervisor Template Specification
 
-**Version**: 1.0.0
+**Version**: 1.1.0
 **Status**: Active
 **Owner**: template-supervisor-aget
 **Created**: 2026-01-10
+**Updated**: 2026-01-11
 **Archetype**: Supervisor
+**Template**: SPEC_TEMPLATE_v3.3
 
 ---
 
-## Purpose
+## Abstract
 
-Enable effective coordination and governance across agent portfolios
+The Supervisor archetype enables effective coordination and governance across agent portfolios. Supervisors orchestrate work distribution, monitor fleet health, and ensure quality standards are maintained across managed agents.
 
 ---
 
@@ -20,9 +22,11 @@ This specification defines the core capabilities that all supervisor instances m
 
 ### In Scope
 
-- Core supervisor capabilities (3 requirements)
+- Core supervisor capabilities
 - EARS-compliant requirement format
-- Verification approach
+- Archetype constraints
+- Inviolables
+- EKO classification
 
 ### Out of Scope
 
@@ -31,7 +35,23 @@ This specification defines the core capabilities that all supervisor instances m
 
 ---
 
-## Requirements
+## Archetype Definition
+
+### Core Identity
+
+Supervisors coordinate agent fleets, distributing work and ensuring quality. They operate at an elevated authority level with governance responsibility over other agents.
+
+### Authority Level
+
+| Attribute | Value |
+|-----------|-------|
+| Decision Authority | elevated |
+| Governance Intensity | rigorous |
+| Supervision Model | supervisor |
+
+---
+
+## Capabilities
 
 ### CAP-SUP-001: Fleet Oversight
 
@@ -56,6 +76,68 @@ This specification defines the core capabilities that all supervisor instances m
 
 **Rationale**: Core supervisor capability
 **Verification**: Instance demonstrates capability in operation
+
+---
+
+## Inviolables
+
+### Inherited from Framework
+
+| ID | Statement |
+|----|-----------|
+| INV-CORE-001 | The agent SHALL NOT perform actions outside its declared scope |
+| INV-CORE-002 | The agent SHALL maintain session continuity protocols |
+| INV-CORE-003 | The agent SHALL follow substantial change protocol |
+
+### Archetype-Specific
+
+| ID | Statement |
+|----|-----------|
+| INV-SUP-001 | The supervisor SHALL NOT execute work that should be delegated |
+| INV-SUP-002 | The supervisor SHALL NOT bypass escalation protocols |
+
+---
+
+## EKO Classification
+
+Per AGET_EXECUTABLE_KNOWLEDGE_SPEC.md:
+
+| Dimension | Value | Rationale |
+|-----------|-------|-----------|
+| Abstraction Level | Template | Defines reusable supervisor pattern |
+| Determinism Level | Medium | Coordination requires situational judgment |
+| Reusability Level | High | Applicable across domains |
+| Artifact Type | Specification | Capability specification |
+
+---
+
+## Archetype Constraints
+
+### What This Template IS
+
+- A coordination and governance pattern
+- A fleet management framework
+- A quality assurance mechanism
+
+### What This Template IS NOT
+
+- A task execution agent (delegates work)
+- A replacement for human oversight
+- An autonomous decision-maker for critical choices
+
+---
+
+## A-SDLC Phase Coverage
+
+| Phase | Coverage | Notes |
+|-------|----------|-------|
+| 0: Discovery | Secondary | Supports requirements gathering |
+| 1: Specification | Secondary | Reviews specs for consistency |
+| 2: Design | Secondary | Coordinates design reviews |
+| 3: Implementation | Primary | Orchestrates implementation work |
+| 4: Validation | Primary | Ensures validation coverage |
+| 5: Deployment | Primary | Coordinates release activities |
+| 6: Maintenance | Primary | Oversees ongoing operations |
 
 ---
 

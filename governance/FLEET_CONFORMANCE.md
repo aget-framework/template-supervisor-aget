@@ -66,7 +66,7 @@ After any point upgrade:
 
 ### 3. New Agent Onboarding
 
-Per SOP_agent_instance_creation.md Gate 5:
+Per SOP_aget_create.md Gate 5:
 1. Require L2+ before fleet registration
 2. Document baseline score
 3. Track improvement trajectory

@@ -24,8 +24,14 @@ workspace/*.log
 workspace/__pycache__/
 
 # User-specific files (not for template)
-.claude/
 .cursor/
 .vscode/
 .idea/
 .DS_Store
+
+# Claude Code user settings (not versioned)
+.claude/settings.json
+.claude/statsig/
+.claude/todos/
+.claude/chat/
+# .claude/skills/ IS versioned

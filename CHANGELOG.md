@@ -5,6 +5,39 @@ All notable changes to AGET will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.5.0] - 2026-02-14 - "Archetype Customization"
+
+### Added
+- Archetype-specific skills: `aget-broadcast-fleet`, `aget-review-agent`, `aget-escalate-issue`
+- Formal ontology: `ontology/ONTOLOGY_supervisor.yaml` (8 concepts, 3 clusters)
+- Universal skill: `aget-file-issue` (14th universal)
+- Evaluator-focused README narrative
+
+### Changed
+- SKILL_VOCABULARY.md v1.2.0 with SKOS reference
+- README structure: "Why Supervisor?" value proposition
+
+### Notes
+- See aget/CHANGELOG.md [3.5.0] for framework changes
+- Part of Archetype Customization release
+
+---
+
+## [3.4.0] - 2026-01-18 - "Session Skills Maturity"
+
+### Added
+- Session protocol enhancements (re-entrancy guard, calendar awareness)
+- Template infrastructure: `sops/SOP_escalation.md`
+
+### Changed
+- Cross-CLI validation (Claude Code, Codex CLI, Gemini CLI)
+- Governance formalization patterns
+
+### Notes
+- See aget/CHANGELOG.md [3.4.0] for framework changes
+
+---
+
 ## [3.3.0] - 2026-01-11 - "Framework Alignment"
 
 ### Changed

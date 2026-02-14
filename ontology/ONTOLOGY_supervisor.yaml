@@ -1,0 +1,366 @@
+# ONTOLOGY: Supervisor Archetype v1.0
+# SKOS-aligned concept definitions for fleet coordination and agent oversight
+#
+# Archetype: supervisor
+# Created: 2026-02-14
+# Author: private-aget-framework-AGET
+# Format: SKOS-inspired YAML (aget-framework convention)
+# Concepts: 8
+# Project: ARC-001 (Archetype Customization v3.5)
+
+apiVersion: aget.framework/v1
+kind: OntologySpec
+metadata:
+  name: supervisor-archetype-ontology
+  version: 1.0.0
+  created: 2026-02-14
+  author: private-aget-framework-AGET
+  archetype: supervisor
+  description: >
+    Formal vocabulary for supervisor archetype agents. Defines concepts for
+    fleet coordination, agent oversight, escalation management, and broadcast
+    communication. Grounded in multi-agent systems theory and organizational
+    management patterns.
+  extends: ONTOLOGY_personal_ai_systems_v1.0.yaml
+
+# ============================================================================
+# CONCEPT SCHEME
+# ============================================================================
+
+conceptScheme:
+  uri: aget:ontology/supervisor
+  prefLabel: Supervisor Archetype Ontology
+  definition: >
+    A vocabulary for describing supervisor agent capabilities including fleet
+    coordination, agent registry management, escalation handling, and broadcast
+    communication patterns.
+  hasTopConcept:
+    - aget:archetype/supervisor/Fleet
+    - aget:archetype/supervisor/Agent_Registry
+    - aget:archetype/supervisor/Escalation
+  relatedScheme:
+    - aget:ontology/personal-ai-systems
+
+# ============================================================================
+# CONCEPTS
+# ============================================================================
+
+concepts:
+
+  # --------------------------------------------------------------------------
+  # Concept: Fleet
+  # --------------------------------------------------------------------------
+  - id: SUP-001
+    uri: aget:archetype/supervisor/Fleet
+    prefLabel: Fleet
+    altLabel:
+      - Agent_Fleet
+      - Agent_Collective
+      - Agent_Pool
+    definition: >
+      A managed collection of agents under a supervisor's coordination.
+      The fleet represents the operational scope of supervisor responsibility.
+    scopeNote: >
+      AGET: Fleet size tracked in identity.json. Supervisors manage but don't
+      own fleet members. Fleet composition changes via create/decommission SOPs.
+    theoreticalBasis:
+      primary: Multi-Agent Systems
+      source: Wooldridge 2009
+      reference: https://en.wikipedia.org/wiki/Multi-agent_system
+    broader: null
+    narrower:
+      - aget:archetype/supervisor/Agent_Registry
+    related:
+      - aget:archetype/supervisor/Broadcast
+      - aget:concept/SupervisoryRelation  # C028
+    example:
+      - "Fleet size: 28 agents across 5 portfolios"
+      - "Main portfolio: 14 agents"
+    inScheme: aget:ontology/supervisor
+    cluster: Fleet Management
+
+  # --------------------------------------------------------------------------
+  # Concept: Agent_Registry
+  # --------------------------------------------------------------------------
+  - id: SUP-002
+    uri: aget:archetype/supervisor/Agent_Registry
+    prefLabel: Agent_Registry
+    altLabel:
+      - Fleet_Registry
+      - Agent_Inventory
+      - Fleet_Manifest
+    definition: >
+      A structured record of all agents in the fleet, including their
+      archetypes, portfolios, status, and key metadata.
+    scopeNote: >
+      AGET: Maintained in fleet/ directory. Enables supervisor awareness of
+      fleet composition and health. Updated during create/migrate/decommission.
+    theoreticalBasis:
+      primary: Service Registry Pattern
+      source: Enterprise Integration Patterns
+      reference: https://www.enterpriseintegrationpatterns.com/patterns/messaging/ServiceRegistry.html
+    broader: aget:archetype/supervisor/Fleet
+    narrower: null
+    related:
+      - aget:archetype/supervisor/Agent_Status
+      - aget:archetype/supervisor/Fleet_Audit
+    example:
+      - "fleet/FLEET_REGISTRY.md"
+      - "fleet/portfolios/main.md"
+    inScheme: aget:ontology/supervisor
+    cluster: Fleet Management
+
+  # --------------------------------------------------------------------------
+  # Concept: Agent_Status
+  # --------------------------------------------------------------------------
+  - id: SUP-003
+    uri: aget:archetype/supervisor/Agent_Status
+    prefLabel: Agent_Status
+    altLabel:
+      - Fleet_Member_Status
+      - Agent_Health
+    definition: >
+      The operational state of an agent in the fleet: active, dormant,
+      migrating, or decommissioned.
+    scopeNote: >
+      Supervisors track agent status to coordinate work distribution and
+      identify agents requiring attention or intervention.
+    theoreticalBasis:
+      primary: State Machine
+      source: UML State Machine
+    broader: aget:archetype/supervisor/Agent_Registry
+    narrower: null
+    related:
+      - aget:archetype/supervisor/Fleet_Audit
+    enumValues:
+      - Active        # Agent operational, regular sessions
+      - Dormant       # Agent inactive but maintained
+      - Migrating     # Agent undergoing version migration
+      - Decommissioning # Agent being retired
+    inScheme: aget:ontology/supervisor
+    cluster: Fleet Management
+
+  # --------------------------------------------------------------------------
+  # Concept: Escalation
+  # --------------------------------------------------------------------------
+  - id: SUP-004
+    uri: aget:archetype/supervisor/Escalation
+    prefLabel: Escalation
+    altLabel:
+      - Issue_Escalation
+      - Decision_Escalation
+      - Authority_Transfer
+    definition: >
+      The transfer of an issue, decision, or work item to a higher authority
+      level when it exceeds the current agent's scope or capability.
+    scopeNote: >
+      AGET: Per L42 gate discipline and Decision Authority Matrix. Escalation
+      triggers include scope boundary, breaking changes, major versions.
+    theoreticalBasis:
+      primary: Exception Handling
+      source: Organizational Behavior
+      secondary: AGET Decision Authority
+      secondarySource: inherited/DECISION_AUTHORITY_MATRIX.md
+    broader: null
+    narrower: null
+    related:
+      - aget:archetype/supervisor/Intervention
+      - aget:concept/GovernanceIntensity  # C020
+    example:
+      - "Breaking change requires supervisor approval"
+      - "Fleet-wide migration escalated from agent"
+    inScheme: aget:ontology/supervisor
+    cluster: Coordination
+
+  # --------------------------------------------------------------------------
+  # Concept: Broadcast
+  # --------------------------------------------------------------------------
+  - id: SUP-005
+    uri: aget:archetype/supervisor/Broadcast
+    prefLabel: Broadcast
+    altLabel:
+      - Fleet_Communication
+      - Fleet_Announcement
+      - Fleet_Notification
+    definition: >
+      A communication sent from supervisor to multiple fleet members
+      simultaneously, typically for announcements, directives, or coordination.
+    scopeNote: >
+      AGET: Release handoffs (R-REL-019), fleet-wide SOP updates, urgent
+      directives. Broadcast via handoff artifacts or direct notification.
+    theoreticalBasis:
+      primary: Publish-Subscribe Pattern
+      source: Enterprise Integration Patterns
+      reference: https://www.enterpriseintegrationpatterns.com/patterns/messaging/PublishSubscribeChannel.html
+    broader: null
+    narrower: null
+    related:
+      - aget:archetype/supervisor/Fleet
+      - aget:archetype/supervisor/Release_Handoff
+    example:
+      - "RELEASE_HANDOFF_v3.4.0.md"
+      - "Fleet-wide SOP update notification"
+    inScheme: aget:ontology/supervisor
+    cluster: Coordination
+
+  # --------------------------------------------------------------------------
+  # Concept: Fleet_Audit
+  # --------------------------------------------------------------------------
+  - id: SUP-006
+    uri: aget:archetype/supervisor/Fleet_Audit
+    prefLabel: Fleet_Audit
+    altLabel:
+      - Fleet_Health_Check
+      - Conformance_Sweep
+      - Fleet_Review
+    definition: >
+      A systematic review of fleet agents for conformance, health, and
+      alignment with current framework version.
+    scopeNote: >
+      AGET: Per L518 conformance pattern. Periodic audits identify drift,
+      non-conformance, and upgrade candidates. Results inform prioritization.
+    theoreticalBasis:
+      primary: Process Audit
+      source: ISO 19011
+    broader: null
+    narrower: null
+    related:
+      - aget:archetype/supervisor/Agent_Registry
+      - aget:concept/Conformance_Assessment  # C073
+    inScheme: aget:ontology/supervisor
+    cluster: Oversight
+
+  # --------------------------------------------------------------------------
+  # Concept: Intervention
+  # --------------------------------------------------------------------------
+  - id: SUP-007
+    uri: aget:archetype/supervisor/Intervention
+    prefLabel: Intervention
+    altLabel:
+      - Supervisor_Action
+      - Corrective_Action
+      - Direct_Oversight
+    definition: >
+      Direct supervisor involvement in an agent's operation, typically
+      to resolve issues, provide guidance, or enforce governance.
+    scopeNote: >
+      Interventions are logged for audit trail. Types: advisory (guidance),
+      directive (instruction), corrective (fixing), emergency (urgent).
+    theoreticalBasis:
+      primary: Management Intervention
+      source: Organizational Behavior
+    broader: null
+    narrower: null
+    related:
+      - aget:archetype/supervisor/Escalation
+    enumValues:
+      - Advisory      # Providing guidance
+      - Directive     # Issuing instruction
+      - Corrective    # Fixing issue
+      - Emergency     # Urgent response
+    inScheme: aget:ontology/supervisor
+    cluster: Oversight
+
+  # --------------------------------------------------------------------------
+  # Concept: Release_Handoff
+  # --------------------------------------------------------------------------
+  - id: SUP-008
+    uri: aget:archetype/supervisor/Release_Handoff
+    prefLabel: Release_Handoff
+    altLabel:
+      - Version_Handoff
+      - Upgrade_Notification
+    definition: >
+      An artifact created by framework managers notifying supervisor of new
+      version availability, enabling fleet upgrade coordination.
+    scopeNote: >
+      AGET: Per L511 and R-REL-019. Contains version, summary, upgrade guide,
+      pilot tracking. Supervisor coordinates fleet-wide adoption.
+    theoreticalBasis:
+      primary: Change Management
+      source: ITIL
+    broader: aget:archetype/supervisor/Broadcast
+    narrower: null
+    related:
+      - aget:archetype/supervisor/Fleet
+    example:
+      - "handoffs/RELEASE_HANDOFF_v3.4.0.md"
+    inScheme: aget:ontology/supervisor
+    cluster: Coordination
+
+# ============================================================================
+# RELATIONSHIPS
+# ============================================================================
+
+relationships:
+  - subject: aget:archetype/supervisor/Agent_Registry
+    predicate: skos:broader
+    object: aget:archetype/supervisor/Fleet
+    note: Registry is a component of Fleet management
+
+  - subject: aget:archetype/supervisor/Fleet_Audit
+    predicate: skos:related
+    object: aget:archetype/supervisor/Agent_Registry
+    note: Audits review agents listed in registry
+
+  - subject: aget:archetype/supervisor/Escalation
+    predicate: skos:related
+    object: aget:archetype/supervisor/Intervention
+    note: Escalations may trigger interventions
+
+  - subject: aget:archetype/supervisor/Release_Handoff
+    predicate: skos:broader
+    object: aget:archetype/supervisor/Broadcast
+    note: Release handoffs are a type of broadcast
+
+# ============================================================================
+# COLLECTIONS
+# ============================================================================
+
+collections:
+  - uri: aget:collection/supervisor/FleetManagement
+    prefLabel: Fleet Management Concepts
+    description: Concepts for managing the agent fleet
+    members:
+      - aget:archetype/supervisor/Fleet
+      - aget:archetype/supervisor/Agent_Registry
+      - aget:archetype/supervisor/Agent_Status
+
+  - uri: aget:collection/supervisor/Coordination
+    prefLabel: Coordination Concepts
+    description: Concepts for fleet coordination and communication
+    members:
+      - aget:archetype/supervisor/Broadcast
+      - aget:archetype/supervisor/Release_Handoff
+      - aget:archetype/supervisor/Escalation
+
+  - uri: aget:collection/supervisor/Oversight
+    prefLabel: Oversight Concepts
+    description: Concepts for agent oversight and review
+    members:
+      - aget:archetype/supervisor/Fleet_Audit
+      - aget:archetype/supervisor/Intervention
+
+# ============================================================================
+# METADATA
+# ============================================================================
+
+provenance:
+  project: ARC-001
+  created: 2026-02-14
+  author: private-aget-framework-AGET
+  methodology: >
+    Derived from supervisor archetype SUPERVISOR_SPEC.md, L463 entity-archetype
+    alignment, and operational patterns observed in private-supervisor-AGET.
+  relatedLdocs:
+    - L463_entity_archetype_alignment.md
+    - L511_release_to_fleet_propagation_gap.md
+    - L398_instance_archetype_baseline_compliance.md
+
+validation:
+  conceptCount: 8
+  clusters: 3
+  theoreticalGrounding: 100%
+  skosCompliance: partial
+
+# End of ONTOLOGY_supervisor.yaml

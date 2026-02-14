@@ -21,7 +21,7 @@ This template is designed for creating supervisor AGETs that:
 
 ## Current Status
 
-**Version**: v3.1.0 "5D Composition Architecture"
+**Version**: v3.5.0 "5D Composition Architecture"
 **Privacy**: Private until supervisor patterns validated
 **Organization**: aget-framework
 **Publication Plan**: Will be made public when supervisor coordination patterns stabilize

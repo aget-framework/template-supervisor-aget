@@ -4,7 +4,7 @@
 
 ## Agent Compatibility
 This configuration follows the AGENTS.md open-source standard for universal agent configuration.
-Works with Claude Code, Cursor, Aider, Windsurf, and other CLI coding agents.
+Works with Claude Code, Codex CLI, Gemini CLI, and other CLI coding agents.
 **Note**: CLAUDE.md is a symlink to this file for backward compatibility.
 
 ## Framework Positioning
@@ -17,7 +17,7 @@ AGET occupies a unique niche in the agent framework landscape:
 - **Instead**: Human-supervised fleet management with organizational memory and version progression
 
 **Differentiators**:
-- Universal CLI compatibility (works across Claude Code, Cursor, Aider, Windsurf)
+- Universal CLI compatibility (works across Claude Code, Codex CLI, Gemini CLI)
 - Contract testing and version compliance (v2.5.0+)
 - Shared learning repository (.aget/evolution/)
 - Lightweight, zero-infrastructure (markdown + git)

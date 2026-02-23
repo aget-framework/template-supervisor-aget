@@ -16,6 +16,8 @@ The Supervisor archetype enables **multi-agent coordination** at scale. Unlike s
 
 **For evaluators**: If you're managing multiple AI agents or need coordination across a portfolio, the Supervisor archetype provides fleet governance without building custom orchestration.
 
+**Domain knowledge that compounds**: Supervisor agents build persistent understanding of your fleet — agent capabilities, common failure patterns, escalation paths, and coordination strategies. Unlike tools that start fresh each session, your agent accumulates fleet intelligence that makes each broadcast more targeted, each review more insightful, and each escalation better routed.
+
 ---
 
 ## Skills
@@ -95,6 +97,7 @@ python3 -m pytest tests/ -v
 | **Communication** | Direct messages | Structured broadcasts |
 | **Issue handling** | Local resolution | Escalation pathways |
 | **Health monitoring** | Self-check | Fleet-wide assessment |
+| **Domain memory** | Starts fresh each session | Accumulates fleet coordination expertise over time |
 
 ---
 

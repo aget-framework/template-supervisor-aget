@@ -1,6 +1,6 @@
 # Traceability Matrix
 
-**Version**: 1.0.0
+**Version**: 1.1.0
 **Created**: 2026-02-27
 **Author**: AGET Framework Team
 **Template**: template-supervisor-aget
@@ -22,9 +22,9 @@ Bidirectional traceability between requirements, specifications, tests, and impl
 | CAP-TPL-003 | identity.json with north_star | test_identity_contract::test_identity_no_conflation, test_identity_persistence | PASS |
 | CAP-TPL-004 | AGENTS.md with session protocols | test_directory_structure::test_agents_md_exists, test_claude_md_symlink, test_configuration_size::test_agents_md_size_limit | PASS |
 | CAP-TPL-005 | governance/ with charter + mission | test_directory_structure::test_core_directories_exist (implicit) | PASS |
-| CAP-TPL-006 | specs/ with at least 1 spec | File existence (18 skill specs + Supervisor_SPEC.md) | PASS |
+| CAP-TPL-006 | specs/ with at least 1 spec | File existence (19 skill specs + Supervisor_SPEC.md) | PASS |
 | CAP-TPL-007 | tests/ with passing contract tests | pytest (29 tests passing) | PASS |
-| CAP-TPL-008 | .claude/skills/ with wake-up + wind-down | File existence (20 skills) | PASS |
+| CAP-TPL-008 | .claude/skills/ with wake-up + wind-down | File existence (19 skills) | PASS |
 | CAP-TPL-009 | sessions/ directory exists | File existence | PASS |
 | CAP-TPL-010 | sops/ with at least 1 SOP | File existence | PASS |
 | CAP-TPL-011 | ontology/ with SKOS-compliant vocabulary | File existence (ONTOLOGY_supervisor.yaml) | PASS |
@@ -73,9 +73,10 @@ Bidirectional traceability between requirements, specifications, tests, and impl
 | SKILL-016 | aget-file-issue | R-FI-001..006 (6) | T-FI-001..003 (3) | C-FI-001..006 (6) | Specified |
 | SKILL-017 | aget-review-agent | R-RA-001..005 (5) | T-RA-001..003 (3) | C-RA-001..003 (3) | Specified |
 | SKILL-018 | aget-study-up | R-SU-001..006 (6) | T-SU-001..003 (3) | C-SU-001..003 (3) | Specified |
+| SKILL-019 | aget-create-aget | R-CA-001..006 (6) | T-CA-001..003 (3) | C-CA-001..003 (3) | Specified |
 
-**Coverage: 18/18 skills specified (100%)**
-**Total: 116 capabilities, 56 test cases, 48 constraints = 220 requirement artifacts**
+**Coverage: 19/19 skills specified (100%)**
+**Total: 122 capabilities, 59 test cases, 51 constraints = 232 requirement artifacts**
 
 ---
 
@@ -106,6 +107,6 @@ Bidirectional traceability between requirements, specifications, tests, and impl
 
 ---
 
-*TRACEABILITY_MATRIX.md v1.0.0*
-*18 skill specs, 220 requirement artifacts, 29 contract tests*
+*TRACEABILITY_MATRIX.md v1.1.0*
+*19 skill specs, 232 requirement artifacts, 29 contract tests*
 *"Every requirement traced, every test grounded"*

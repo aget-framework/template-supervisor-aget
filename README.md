@@ -2,7 +2,7 @@
 
 > Coordinate agent fleets with broadcast, review, and escalation capabilities
 
-**Version**: v3.6.0 | **Archetype**: Supervisor | **Skills**: 3 specialized + 14 universal
+**Version**: v3.6.0 | **Archetype**: Supervisor | **Skills**: 4 specialized + 15 universal
 
 ---
 
@@ -22,7 +22,7 @@ The Supervisor archetype enables **multi-agent coordination** at scale. Unlike s
 
 ## Skills
 
-Supervisor agents come with **3 archetype-specific skills** plus the universal AGET skills.
+Supervisor agents come with **4 archetype-specific skills** plus the universal AGET skills.
 
 ### Archetype Skills
 
@@ -31,6 +31,7 @@ Supervisor agents come with **3 archetype-specific skills** plus the universal A
 | **aget-broadcast-fleet** | Send communications to fleet members. Supports announcements, directives, and release handoffs with delivery tracking. |
 | **aget-review-agent** | Review a specific agent's health, conformance level (L0-L5), and recent activity. Produces assessment with recommendations. |
 | **aget-escalate-issue** | Escalate issues to higher authority when they exceed current scope. Creates structured escalation documentation. |
+| **aget-create-aget** | Create a new agent instance using the ontology-driven workflow. Guides through 9 SOP gates with human checkpoints. |
 
 ### Universal Skills
 
@@ -39,9 +40,10 @@ All AGET agents include session management, knowledge capture, and health monito
 - `aget-wake-up` / `aget-wind-down` — Session lifecycle
 - `aget-create-project` / `aget-review-project` — Project management
 - `aget-record-lesson` / `aget-capture-observation` — Learning capture
-- `aget-check-health` / `aget-check-kb` / `aget-check-evolution` — Health monitoring
+- `aget-check-health` / `aget-check-kb` / `aget-check-evolution` / `aget-check-sessions` — Health monitoring
 - `aget-propose-skill` / `aget-create-skill` — Skill development
 - `aget-save-state` / `aget-file-issue` — State and issue management
+- `aget-study-up` — Focused KB research on a topic
 
 ---
 
@@ -107,7 +109,7 @@ python3 -m pytest tests/ -v
 |-----------|-------|
 | **Framework** | [AGET v3.6.0](https://github.com/aget-framework/aget) |
 | **Archetype** | Supervisor |
-| **Skills** | 17 total (3 archetype + 14 universal) |
+| **Skills** | 19 total (4 archetype + 15 universal) |
 | **Ontology** | 8 concepts, 3 clusters |
 | **License** | Apache 2.0 |
 

@@ -1,0 +1,156 @@
+# SKILL-019: aget-create-aget
+# Supervisor Archetype Skill — Agent Instance Creation
+#
+# Version: 1.0.0
+# Status: Specified
+# Created: 2026-02-27
+# Author: AGET Framework Team
+# Template: EARS Skill Specification
+
+skill:
+  id: SKILL-019
+  name: aget-create-aget
+  version: "1.0.0"
+  category: Supervision
+  archetype: supervisor
+  description: >
+    Guide the supervisor through ontology-driven agent creation using
+    SOP_aget_create.md gates and instantiate_template.py automation.
+
+# =============================================================================
+# Capabilities (EARS Format)
+# =============================================================================
+
+capabilities:
+  R-CA-001:
+    type: event_driven
+    statement: >
+      WHEN the user invokes /aget-create-aget with template type and agent name,
+      THE SKILL SHALL validate that the template exists and agent name follows
+      naming conventions (-aget for internal, -AGET for external).
+    rationale: "L480 write scope determination + SOP G0 pre-requisites"
+    verification: "V-CA-001: Script accepts valid template/name, rejects invalid"
+
+  R-CA-002:
+    type: event_driven
+    statement: >
+      WHEN pre-requisites are validated,
+      THE SKILL SHALL guide the user through ontology creation (SKOS vocabulary,
+      EARS specification, research methodology) before proceeding to instantiation.
+    rationale: "L481 ontology-driven creation — define before instantiate"
+    verification: "V-CA-002: Skill pauses at G1 and waits for user GO"
+
+  R-CA-003:
+    type: event_driven
+    statement: >
+      WHEN ontology artifacts are confirmed ready,
+      THE SKILL SHALL execute instantiate_template.py to create the agent
+      instance from the selected template.
+    rationale: "SOP G3 instance creation — automated step"
+    verification: "V-CA-003: Agent directory created with valid structure"
+
+  R-CA-004:
+    type: event_driven
+    statement: >
+      WHEN instance creation is complete,
+      THE SKILL SHALL guide configuration (governance files, identity derivation)
+      and run structural validation.
+    rationale: "SOP G4-G5 — configuration and validation"
+    verification: "V-CA-004: Contract tests pass, wake_up.py executes"
+
+  R-CA-005:
+    type: event_driven
+    statement: >
+      WHEN validation passes,
+      THE SKILL SHALL guide initial assignment and pause for supervisor handoff,
+      documenting that the agent is NOT active until supervisor acknowledges.
+    rationale: "L487 fleet registration — G7-G8 require supervisor ACK"
+    verification: "V-CA-005: Handoff template referenced, status shows G7-G8 pending"
+
+  R-CA-006:
+    type: ubiquitous
+    statement: >
+      THE SKILL SHALL reference SOP_aget_create.md for detailed gate procedures
+      rather than duplicating SOP content.
+    rationale: "Single source of truth — SOP is canonical, skill is wrapper"
+    verification: "V-CA-006: SKILL.md contains SOP reference, no duplicated gate details"
+
+# =============================================================================
+# Test Cases
+# =============================================================================
+
+test_cases:
+  T-CA-001:
+    description: "Skill validates template existence and naming convention"
+    preconditions:
+      - "User invokes /aget-create-aget with valid template type"
+    steps:
+      - "Provide valid template type and agent name"
+      - "Verify skill confirms template exists"
+      - "Verify skill validates -aget/-AGET suffix"
+    expected_result: "Skill proceeds to G1 or reports validation error"
+    validates: ["R-CA-001"]
+
+  T-CA-002:
+    description: "Skill pauses at ontology gate and waits for user"
+    preconditions:
+      - "Pre-requisites validated (G0 pass)"
+    steps:
+      - "Observe skill behavior after G0"
+      - "Verify skill presents ontology creation guidance"
+      - "Verify skill waits for explicit user GO"
+    expected_result: "Skill does NOT proceed to instantiation without user confirmation"
+    validates: ["R-CA-002"]
+
+  T-CA-003:
+    description: "Skill pauses at supervisor handoff and documents pending status"
+    preconditions:
+      - "Instance created and validated (G0-G6 complete)"
+    steps:
+      - "Observe skill behavior after G6"
+      - "Verify skill presents handoff guidance"
+      - "Verify summary shows G7-G8 as pending"
+    expected_result: "Skill clearly states agent is NOT active until supervisor ACK"
+    validates: ["R-CA-005"]
+
+# =============================================================================
+# Constraints
+# =============================================================================
+
+constraints:
+  C-CA-001:
+    type: inviolable
+    statement: >
+      THE SKILL SHALL NOT create an agent instance before ontology
+      artifacts (vocabulary, specification, methodology) are confirmed ready.
+    rationale: "L481 — ontology DRIVES creation, not afterthought"
+
+  C-CA-002:
+    type: inviolable
+    statement: >
+      THE SKILL SHALL NOT mark an agent as active or complete without
+      documenting that supervisor handoff (G7-G8) is required.
+    rationale: "L487 — fleet registration requires supervisor ACK"
+
+  C-CA-003:
+    type: inviolable
+    statement: >
+      THE SKILL SHALL NOT modify instantiate_template.py or SOP_aget_create.md,
+      as these are aget/ repo artifacts outside this agent's scope.
+    rationale: "Scope boundaries — template wraps, doesn't own"
+
+# =============================================================================
+# Traceability
+# =============================================================================
+
+traceability:
+  sop: "aget/sops/SOP_aget_create.md v2.2.0"
+  script: "aget/scripts/instantiate_template.py"
+  l_docs:
+    - "L480: Write Scope Vocabulary"
+    - "L481: Ontology-Driven Agent Creation"
+    - "L482: SKOS+EARS Grounding"
+    - "L487: Fleet Registration Process"
+  related_skills:
+    - "SKILL-014: aget-broadcast-fleet (fleet communication post-creation)"
+    - "SKILL-017: aget-review-agent (agent review for handoff)"

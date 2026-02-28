@@ -96,6 +96,37 @@ This enables:
 - `-aget` suffix = Information-only agent (read-only)
 - All detection logic supports both cases
 
+## Decision Authority (L330, L342)
+
+| Decision Type | Supervisor Authority | Escalate To |
+|---------------|---------------------|-------------|
+| L-docs, specs, documentation | Autonomous | — |
+| Agent configuration changes | Autonomous | — |
+| Fleet-wide pattern deployment | Propose + validate | Human principal |
+| Breaking changes | Escalate | Human principal |
+| Visibility / access changes | Escalate | Human principal |
+
+**Key Principle**: Supervisor provides governance oversight for fleet. Human principal approves major decisions.
+
+**Note**: Customize this table for your fleet's governance model — adjust authority levels based on trust and operational maturity.
+
+### Inherited Knowledge (L330)
+
+Supervisor agents inherit institutional knowledge. Key foundations:
+
+| Document | Key Insight |
+|----------|-------------|
+| L143 | AGET = "Configuration & Lifecycle Management for CLI-Based Human-AI Collaborative Coding" |
+| L99 | "Every agent is a worker. Supervision is a capability, not a type." |
+| ADR-001 | AGET = conversation layer only |
+| ADR-005 | Gates = release points |
+| ADR-008 | Advisory → Strict → Generator quality progression |
+
+**Note**: Populate with your fleet's critical decisions and learnings as they accumulate.
+See: `governance/MEMORY_VISION.md`
+
+---
+
 ## Portfolio Configuration (v2.8.0)
 
 **Purpose**: Organize supervised agents by sensitivity level for fleet coordination and governance.
@@ -253,7 +284,15 @@ When facing any substantial change or multi-step task:
 1. **STOP** - Don't dive into implementation
 2. **PLAN** - Create incremental go/no-go gated plan
 3. **PRESENT** - Offer descriptive plan with decision points
-4. **WAIT** - Get user approval before proceeding
+4. **REVIEW KB** - Search governance/, planning/, evolution/ for precedents (L335)
+5. **WAIT** - Get user approval before proceeding
+
+**KB Review Checklist (L335)**:
+Before proposing substantial changes, review:
+- [ ] `governance/` — boundaries, charter, mission
+- [ ] `planning/` — active work, related PROJECT_PLANs
+- [ ] `.aget/evolution/` — learnings applicable to context
+- [ ] Cite 3+ precedents or note "novel"
 
 **Recognition Triggers**:
 - Multiple file operations (>3 files)
@@ -278,6 +317,10 @@ When facing any substantial change or multi-step task:
 - **WAIT for explicit GO** before starting next gate
 - Don't assume continuation or optimize for speed over control
 - Red flag: "While we're at it, let's also..." = likely next gate work
+
+**Mid-Gate Quality Checkpoints (L002)**:
+For gates with 4+ deliverables, insert checkpoint at 50% mark.
+Cost: 5-10 min | Benefit: Prevents 60+ min rework | ROI: 6-12x time savings.
 
 **Gate Sizing Heuristic (L104)**:
 
@@ -358,6 +401,23 @@ Scenario C (Maximum): Z hours → [Specific deliverable]
 Which scenario fits actual requirements?
 ```
 
+### Execution Governance Check (L340)
+Before modifying public or shared repositories:
+1. [ ] Governance artifact exists (PROJECT_PLAN or gate checklist)
+2. [ ] Tracking issue referenced
+3. [ ] Success criteria defined
+4. [ ] Rollback plan documented
+
+**Red Flag**: "Let me just..." or "I'll quickly..." without governance artifact = STOP
+
+### Session Scope Check (L342)
+Before significant scope expansion:
+1. [ ] Re-read session mandate (wake-up instructions)
+2. [ ] Classify proposed work: Research | Preparation | Execution
+3. [ ] If execution beyond mandate: Create handoff, defer to future session
+
+**Red Flag**: Scope evolved 3+ times from original mandate = STOP, reassess.
+
 ## Session Management Protocols
 
 ### Wake Up Protocol
@@ -428,6 +488,17 @@ When verifying multi-repository deployment:
 When user says "sign off" or "all done":
 - Quick save and exit
 - No questions
+
+## Release Governance (L465, L467, L511)
+
+Before releasing:
+1. Audit all PROJECT_PLANs targeting the version (L465 — release scope consolidation)
+2. Verify critical governance patterns have layered discovery (L467 — not single-point documentation)
+3. After release: create handoff artifact for fleet upgrade coordination (L511)
+
+See: `sops/SOP_release_process.md` (when available)
+
+---
 
 ## Issue Management
 
@@ -561,6 +632,23 @@ FILED → ROUTED → ASSIGNED → ACKNOWLEDGED → IN_PROGRESS → CLOSED
 - High: Acknowledge in 3 days, resolve in 2 weeks
 - Medium: Acknowledge in 1 week, resolve in 1 month
 - Low: Acknowledge in 2 weeks, resolve in 3 months
+
+### Issue Routing Governance (L520)
+
+**CRITICAL**: Private fleet agents MUST NOT file issues to public repos without content sanitization.
+
+| Agent Type | Issue Destination | Content Rules |
+|------------|-------------------|---------------|
+| Private fleet agents | Private tracker | Can include private details |
+| Public/remote agents | Public repo | Must be sanitized |
+
+**Content to Sanitize Before Public Filing**:
+- Private agent names (e.g., `private-*-aget` patterns)
+- Fleet size and internal capacity details
+- Private repository references
+- Internal session references
+
+**Note**: Configure specific routing rules for your fleet when instantiating this template.
 
 ## Housekeeping Commands
 

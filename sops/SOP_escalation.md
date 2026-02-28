@@ -3,7 +3,9 @@
 **Version**: 1.0
 **Status**: ACTIVE
 **Created**: 2026-01-18
-**Template**: template-supervisor-aget
+**Author**: AGET Framework Team
+**Evidence Source**: Production escalation patterns (governance/CHARTER.md, L520)
+**Lifecycle**: ACTIVE — validated through operational use
 
 ---
 

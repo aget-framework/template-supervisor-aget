@@ -19,6 +19,20 @@ $ARGUMENTS
 | Empty or blank | **Interactive** | Prompt for type and name |
 | `<type> <name>` | **Explicit** | Create project of specified type |
 | `<topic>` only | **Inference** | Infer type from topic and AGET domain |
+| Input contains evidence statements (interview data, gap analysis, L-doc citations, cross-reference synthesis) | **Evidence-rich** | Abbreviated research phase — use provided evidence, skip redundant searches |
+
+### Evidence-Rich Mode
+
+**Detection**: Input contains 2+ of: specific L-doc references (L###), quantitative data (percentages, counts, session numbers), named sources (supervisor interviews, audit results), or cross-reference synthesis ("both supervisors agree...").
+
+**Behavior**: Research Phase (Step 3) still executes per C-CP-003, but in abbreviated form:
+- Step 3.1 (identity): **Runs** — always needed for project context
+- Step 3.2 (L-docs): **Abbreviated** — search only L-docs explicitly cited in input, don't broad-search by topic keywords
+- Step 3.3 (sessions): **Abbreviated** — note current session only (evidence was gathered in-session)
+- Step 3.4 (similar projects): **Runs** — conflict check always needed
+- Step 3.5 (vocabulary): **Runs** — vocabulary grounding always needed
+
+**Rationale**: When the user provides rich evidence context (e.g., from supervisor interviews or gap analysis conducted in the same session), broad keyword searches duplicate work already done. The abbreviated research phase respects C-CP-003 (research is NOT skipped) while avoiding redundancy.
 
 ## Supported Project Types
 

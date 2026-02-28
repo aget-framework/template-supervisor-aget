@@ -32,7 +32,7 @@ L021 Verification Table:
     | 5 | evolution/ | Check before counting L-docs |
 
 Author: AGET Framework Team (canonical template)
-Version: 1.0.0 (v3.1.0)
+Version: 1.1.0 (version-aware checks)
 """
 
 import argparse
@@ -86,6 +86,29 @@ class CheckResult:
 # =============================================================================
 # Checks
 # =============================================================================
+
+def get_aget_version(agent_path: Path) -> Optional[str]:
+    """Read aget_version from version.json. Returns None if unavailable."""
+    version_file = agent_path / '.aget' / 'version.json'
+    try:
+        with open(version_file) as f:
+            data = json.load(f)
+        return data.get('aget_version')
+    except (FileNotFoundError, json.JSONDecodeError):
+        return None
+
+
+def version_gte(version: Optional[str], target: str) -> bool:
+    """Check if version >= target. Returns False if version is None."""
+    if version is None:
+        return False
+    try:
+        v_parts = [int(x) for x in version.split('.')]
+        t_parts = [int(x) for x in target.split('.')]
+        return v_parts >= t_parts
+    except (ValueError, AttributeError):
+        return False
+
 
 def check_aget_directory(agent_path: Path) -> CheckResult:
     """L021 Check 1: Verify .aget/ directory exists."""
@@ -143,12 +166,19 @@ def check_identity_json(agent_path: Path) -> CheckResult:
     identity_file = agent_path / '.aget' / 'identity.json'
 
     if not identity_file.exists():
+        agent_version = get_aget_version(agent_path)
+        if version_gte(agent_version, "3.0.0"):
+            return CheckResult(
+                name="identity_json",
+                passed=False,
+                message="identity.json not found (required for v3.0+)",
+                severity="warning",
+                fixable=True
+            )
         return CheckResult(
             name="identity_json",
-            passed=False,
-            message="identity.json not found (recommended for v3.0)",
-            severity="warning",
-            fixable=True
+            passed=True,
+            message="identity.json not found (optional for pre-v3.0)"
         )
 
     try:
@@ -183,12 +213,19 @@ def check_governance_directory(agent_path: Path) -> CheckResult:
     gov_dir = agent_path / 'governance'
 
     if not gov_dir.is_dir():
+        agent_version = get_aget_version(agent_path)
+        if version_gte(agent_version, "3.0.0"):
+            return CheckResult(
+                name="governance_directory",
+                passed=False,
+                message="governance/ directory not found (required for v3.0+)",
+                severity="warning",
+                fixable=True
+            )
         return CheckResult(
             name="governance_directory",
-            passed=False,
-            message="governance/ directory not found (recommended for v3.0)",
-            severity="warning",
-            fixable=True
+            passed=True,
+            message="governance/ directory not found (optional for pre-v3.0)"
         )
 
     required_files = ['CHARTER.md', 'MISSION.md', 'SCOPE_BOUNDARIES.md']
@@ -259,10 +296,17 @@ def check_5d_structure(agent_path: Path) -> CheckResult:
         )
 
     if len(present) == 0:
+        agent_version = get_aget_version(agent_path)
+        if not version_gte(agent_version, "3.0.0"):
+            return CheckResult(
+                name="5d_structure",
+                passed=True,
+                message="No 5D directories (expected for pre-v3.0)"
+            )
         return CheckResult(
             name="5d_structure",
             passed=False,
-            message="No 5D directories (pre-v3.0 structure)",
+            message="No 5D directories (required for v3.0+)",
             severity="warning"
         )
 
@@ -469,10 +513,13 @@ Exit codes:
         action='store_true',
         help='Enable diagnostic output to stderr'
     )
+    # Read version dynamically instead of hardcoding
+    script_version = "1.1.0"
+    agent_version = get_aget_version(Path.cwd()) or "unknown"
     parser.add_argument(
         '--version',
         action='version',
-        version='aget_housekeeping_protocol.py 1.0.0 (AGET v3.1.0)'
+        version=f'aget_housekeeping_protocol.py {script_version} (AGET v{agent_version})'
     )
 
     args = parser.parse_args()

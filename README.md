@@ -2,7 +2,7 @@
 
 > Coordinate agent fleets with broadcast, review, and escalation capabilities
 
-**Version**: v3.6.0 | **Archetype**: Supervisor | **Skills**: 4 specialized + 15 universal
+**Version**: v3.6.0 | **Archetype**: Supervisor | **Skills**: 6 specialized + 15 universal
 
 ---
 
@@ -22,14 +22,16 @@ The Supervisor archetype enables **multi-agent coordination** at scale. Unlike s
 
 ## Skills
 
-Supervisor agents come with **4 archetype-specific skills** plus the universal AGET skills.
+Supervisor agents come with **6 archetype-specific skills** plus the universal AGET skills.
 
 ### Archetype Skills
 
 | Skill | Description |
 |-------|-------------|
 | **aget-broadcast-fleet** | Send communications to fleet members. Supports announcements, directives, and release handoffs with delivery tracking. |
+| **aget-check-fleet** | Lightweight fleet health verification — 3 checks per agent (accessibility, structural integrity, symlink validity). Use for day-1 orientation or pre-delegation verification. |
 | **aget-review-agent** | Review a specific agent's health, conformance level (L0-L5), and recent activity. Produces assessment with recommendations. |
+| **aget-review-handoff** | Structured delegation review — compare agent output against delegation criteria, produce accept/reject decision with rationale. |
 | **aget-escalate-issue** | Escalate issues to higher authority when they exceed current scope. Creates structured escalation documentation. |
 | **aget-create-aget** | Create a new agent instance using the ontology-driven workflow. Guides through 9 SOP gates with human checkpoints. |
 
@@ -109,7 +111,7 @@ python3 -m pytest tests/ -v
 |-----------|-------|
 | **Framework** | [AGET v3.6.0](https://github.com/aget-framework/aget) |
 | **Archetype** | Supervisor |
-| **Skills** | 19 total (4 archetype + 15 universal) |
+| **Skills** | 21 total (6 archetype + 15 universal) |
 | **Ontology** | 8 concepts, 3 clusters |
 | **License** | Apache 2.0 |
 

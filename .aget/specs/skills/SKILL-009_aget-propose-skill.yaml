@@ -22,7 +22,7 @@ spec:
       - "Advisory_Enforcement"
 
 capabilities:
-  PS-001:
+  R-PS-001:
     domain: invocation
     statement: "WHEN user invokes `/aget-propose-skill`, the SKILL shall gather information and create a proposal document."
     pattern: event-driven
@@ -32,28 +32,28 @@ capabilities:
       - "planning/skill-proposals/PROPOSAL_{name}.md"
     verification: "Proposal document created"
 
-  PS-002:
+  R-PS-002:
     domain: validation
     statement: "The SKILL shall validate skill name follows aget-{verb}-{object} pattern."
     pattern: ubiquitous
     priority: critical
     verification: "Invalid names rejected"
 
-  PS-003:
+  R-PS-003:
     domain: validation
     statement: "The SKILL shall verify skill does not already exist in .claude/skills/."
     pattern: ubiquitous
     priority: high
     verification: "Duplicate skills detected"
 
-  PS-004:
+  R-PS-004:
     domain: validation
     statement: "The SKILL shall require at least 2 triggers for the proposed skill."
     pattern: ubiquitous
     priority: medium
     verification: "Minimum triggers enforced"
 
-  PS-005:
+  R-PS-005:
     domain: gathering
     statement: "The SKILL shall collect: skill name, purpose, triggers, category, and scope from user."
     pattern: ubiquitous
@@ -62,7 +62,7 @@ capabilities:
       - "Skill metadata for proposal"
     verification: "All fields collected"
 
-  PS-006:
+  R-PS-006:
     domain: output
     statement: "The SKILL shall create proposal with PROPOSED status and approval checklist."
     pattern: ubiquitous
@@ -71,7 +71,7 @@ capabilities:
       - "Proposal with approval checkboxes"
     verification: "Proposal has approval workflow"
 
-  PS-007:
+  R-PS-007:
     domain: enforcement
     statement: "The SKILL shall use advisory enforcement - no technical blocking if bypassed."
     pattern: ubiquitous
@@ -80,7 +80,7 @@ capabilities:
 
 test_cases:
   T-PS-001:
-    capability: "PS-002"
+    capability: "R-PS-002"
     scenario: "Invalid name format rejected"
     given: "User proposes 'my-skill' (missing aget- prefix)"
     when: "User runs `/aget-propose-skill my-skill`"
@@ -88,7 +88,7 @@ test_cases:
     verification_method: "manual"
 
   T-PS-002:
-    capability: "PS-003"
+    capability: "R-PS-003"
     scenario: "Duplicate skill detected"
     given: "aget-wake-up already exists"
     when: "User proposes aget-wake-up"
@@ -96,7 +96,7 @@ test_cases:
     verification_method: "automated"
 
   T-PS-003:
-    capability: "PS-006"
+    capability: "R-PS-006"
     scenario: "Proposal created with workflow"
     given: "Valid skill proposal information"
     when: "User completes skill proposal"

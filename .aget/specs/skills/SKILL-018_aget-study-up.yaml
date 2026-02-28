@@ -1,0 +1,122 @@
+# SKILL-018: aget-study-up
+# Purpose: Focused KB research on a specific topic before implementation
+# Created: 2026-02-27
+# Based on: CAP-SESSION-007, L335, L187, SKILL_SPEC_TEMPLATE.yaml
+# Note: Skill directory is currently aget-studyup (rename to aget-study-up pending P2.10 G3.5)
+
+spec:
+  id: SKILL-018
+  name: aget-study-up
+  version: 1.0.0
+  status: production
+  created: 2026-02-27
+  format: "EARS with controlled vocabulary"
+  category: Research
+  scope: "Search L-docs, patterns, PROJECT_PLANs, SOPs, and governance for topic-relevant context"
+
+  traceability:
+    skill_md: ".claude/skills/aget-studyup/SKILL.md"
+    l_docs:
+      - "L335: Memory Architecture Principles"
+      - "L187: Silent Execution"
+    vocabulary_terms:
+      - "Knowledge_Base"
+      - "Study_Up"
+      - "Session_Context"
+
+capabilities:
+  R-SU-001:
+    domain: validation
+    statement: "WHEN invoked, the SKILL shall require a topic argument."
+    pattern: ubiquitous
+    priority: critical
+    outputs:
+      - "Validation result"
+    verification: "Error message displayed when topic missing"
+
+  R-SU-002:
+    domain: search
+    statement: "WHEN topic provided, the SKILL shall search 5 KB areas: L-docs, patterns, PROJECT_PLANs, SOPs, and governance."
+    pattern: event-driven
+    trigger: topic_validated
+    priority: critical
+    outputs:
+      - "Search results per KB area"
+    verification: "All 5 KB areas searched; match counts reported"
+
+  R-SU-003:
+    domain: execution
+    statement: "WHEN study_up.py script exists, the SKILL shall execute `python3 .aget/patterns/session/study_up.py --topic <topic>`."
+    pattern: conditional
+    trigger: script_available
+    priority: high
+    outputs:
+      - "Script stdout"
+    verification: "Script executes without error"
+
+  R-SU-004:
+    domain: output
+    statement: "The SKILL shall present findings with match counts and coverage assessment."
+    pattern: ubiquitous
+    priority: medium
+    outputs:
+      - "Findings summary per KB area"
+      - "Coverage recommendation"
+    verification: "Output includes all 5 KB areas with counts"
+
+  R-SU-005:
+    domain: guidance
+    statement: "WHEN findings presented, the SKILL shall suggest specific L-docs to read, active PROJECT_PLANs to track, and governance constraints that apply."
+    pattern: event-driven
+    trigger: findings_presented
+    priority: medium
+    outputs:
+      - "Next steps recommendations"
+    verification: "Suggestions reference actual found artifacts"
+
+  R-SU-006:
+    domain: output_modes
+    statement: "The SKILL shall support human-readable (default), JSON, and quiet output modes."
+    pattern: ubiquitous
+    priority: low
+    outputs:
+      - "Mode-appropriate output"
+    verification: "JSON mode produces valid JSON; quiet mode reduces output"
+
+test_cases:
+  T-SU-001:
+    capability: "R-SU-001"
+    scenario: "Reject invocation without topic"
+    given: "No topic argument provided"
+    when: "Skill invoked"
+    then: "Error message with usage instructions"
+    verification_method: "manual"
+
+  T-SU-002:
+    capability: "R-SU-002"
+    scenario: "Search all 5 KB areas"
+    given: "Topic 'release' provided"
+    when: "Skill searches KB"
+    then: "Results returned for L-docs, patterns, PROJECT_PLANs, SOPs, and governance"
+    verification_method: "manual"
+
+  T-SU-003:
+    capability: "R-SU-004"
+    scenario: "Zero results for unknown topic"
+    given: "Topic 'xyznonexistent' provided"
+    when: "Skill searches KB"
+    then: "Report 'No matches found' with alternative search suggestions"
+    verification_method: "manual"
+
+constraints:
+  C-SU-001:
+    statement: "The SKILL shall NOT execute without a topic argument."
+    rationale: "Unfocused search wastes time and produces noise"
+
+  C-SU-002:
+    statement: "The SKILL shall NOT modify any KB files."
+    rationale: "Study-up is read-only research"
+
+  C-SU-003:
+    statement: "The SKILL shall present findings objectively without editorial bias."
+    rationale: "User decides relevance, not the skill"

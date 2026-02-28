@@ -3,6 +3,8 @@
 
 Tests that portfolio field exists in version.json for fleet organization.
 Part of AGET framework v2.7 portfolio governance standards.
+
+Validates: CAP-TPL-002 (version.json fields), CAP-SUP-001 (fleet oversight)
 """
 
 import pytest
@@ -11,7 +13,7 @@ from pathlib import Path
 
 
 def test_portfolio_field_exists():
-    """version.json must have portfolio field (may be null for templates/coordinators)."""
+    """version.json must have portfolio field (may be null for templates/coordinators). [CAP-TPL-002]"""
     version_file = Path(".aget/version.json")
     assert version_file.exists(), "version.json not found"
 

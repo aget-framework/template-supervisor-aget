@@ -23,7 +23,7 @@ spec:
       - "Session_Initialization"
 
 capabilities:
-  WU-001:
+  R-WU-001:
     domain: invocation
     statement: "WHEN user invokes `/aget-wake-up`, the SKILL shall run the wake-up script and display agent status."
     pattern: event-driven
@@ -38,7 +38,7 @@ capabilities:
       - "Skills and Learnings counts"
     verification: "Output includes agent version from .aget/version.json"
 
-  WU-002:
+  R-WU-002:
     domain: execution
     statement: "WHEN wake-up script exists, the SKILL shall execute `python3 scripts/wake_up.py`."
     pattern: event-driven
@@ -50,7 +50,7 @@ capabilities:
       - "Script stdout"
     verification: "Script executes without error"
 
-  WU-003:
+  R-WU-003:
     domain: fallback
     statement: "WHEN wake-up script is missing or fails, the SKILL shall perform manual wake-up reading version.json and AGENTS.md."
     pattern: conditional
@@ -62,7 +62,7 @@ capabilities:
       - "Fallback status output"
     verification: "Fallback produces valid output when script unavailable"
 
-  WU-004:
+  R-WU-004:
     domain: output
     statement: "The SKILL shall report Skills count from .claude/skills/ and Learnings count from .aget/evolution/L*.md."
     pattern: ubiquitous
@@ -72,7 +72,7 @@ capabilities:
       - "Learnings: N"
     verification: "Counts match actual directory contents"
 
-  WU-005:
+  R-WU-005:
     domain: output
     statement: "The SKILL shall report git branch and status (clean/dirty)."
     pattern: ubiquitous
@@ -81,7 +81,7 @@ capabilities:
       - "Git: [branch] ([clean/dirty])"
     verification: "Git status accurately reflects working tree"
 
-  WU-006:
+  R-WU-006:
     domain: error_handling
     statement: "WHEN script returns exit code 1, the SKILL shall report validation warnings."
     pattern: event-driven
@@ -91,7 +91,7 @@ capabilities:
       - "Warning messages"
     verification: "Warnings displayed for exit code 1"
 
-  WU-007:
+  R-WU-007:
     domain: error_handling
     statement: "WHEN script returns exit code 2, the SKILL shall report configuration error."
     pattern: event-driven
@@ -103,7 +103,7 @@ capabilities:
 
 test_cases:
   T-WU-001:
-    capability: "WU-001"
+    capability: "R-WU-001"
     scenario: "User invokes wake-up with valid configuration"
     given: ".aget/version.json exists with valid version"
     when: "User runs `/aget-wake-up`"
@@ -111,7 +111,7 @@ test_cases:
     verification_method: "manual"
 
   T-WU-002:
-    capability: "WU-002"
+    capability: "R-WU-002"
     scenario: "Script execution succeeds"
     given: "scripts/wake_up.py exists and is executable"
     when: "Skill invokes script"
@@ -119,7 +119,7 @@ test_cases:
     verification_method: "automated"
 
   T-WU-003:
-    capability: "WU-003"
+    capability: "R-WU-003"
     scenario: "Fallback when script missing"
     given: "scripts/wake_up.py does not exist"
     when: "User runs `/aget-wake-up`"
@@ -127,7 +127,7 @@ test_cases:
     verification_method: "manual"
 
   T-WU-004:
-    capability: "WU-004"
+    capability: "R-WU-004"
     scenario: "Skills and Learnings count accurate"
     given: "3 skills in .claude/skills/, 304 L-docs in .aget/evolution/"
     when: "User runs `/aget-wake-up`"

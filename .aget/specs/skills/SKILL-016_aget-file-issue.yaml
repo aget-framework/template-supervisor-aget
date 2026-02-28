@@ -1,0 +1,133 @@
+# SKILL-016: aget-file-issue
+# Purpose: File issues with automatic routing and content sanitization
+# Created: 2026-02-27
+# Based on: L520, AGET_ISSUE_GOVERNANCE_SPEC, SKILL_SPEC_TEMPLATE.yaml
+
+spec:
+  id: SKILL-016
+  name: aget-file-issue
+  version: 1.0.0
+  status: production
+  created: 2026-02-27
+  format: "EARS with controlled vocabulary"
+  category: Governance
+  scope: "File GitHub issues with automatic destination routing and content sanitization per L520"
+
+  traceability:
+    skill_md: ".claude/skills/aget-file-issue/SKILL.md"
+    l_docs:
+      - "L520: Issue Governance Gap"
+      - "L583: Issue Content Sanitization Gap"
+    vocabulary_terms:
+      - "Issue_Governance"
+      - "Sanitization"
+
+capabilities:
+  R-FI-001:
+    domain: routing
+    statement: "WHEN filing an issue, the SKILL shall automatically determine destination based on agent type."
+    pattern: ubiquitous
+    priority: critical
+    inputs:
+      - "Agent type (private fleet vs public)"
+    outputs:
+      - "Destination repository"
+    verification: "Private fleet agents route to gmelli/aget-aget; public agents route to aget-framework/aget"
+
+  R-FI-002:
+    domain: sanitization
+    statement: "WHEN filing to public repos from private agents, the SKILL shall sanitize content removing private agent names, internal repo references, fleet size disclosures, and session references."
+    pattern: conditional
+    trigger: public_destination
+    priority: critical
+    outputs:
+      - "Sanitized issue content"
+    verification: "Zero matches for private-*-aget, gmelli/*, fleet size patterns in output"
+
+  R-FI-003:
+    domain: detection
+    statement: "The SKILL shall detect agent type by checking for private fleet markers, gmelli references, and version.json fields."
+    pattern: ubiquitous
+    priority: high
+    outputs:
+      - "Agent type classification"
+    verification: "Classification matches actual agent type"
+
+  R-FI-004:
+    domain: template
+    statement: "WHEN filing an issue, the SKILL shall select appropriate template based on issue type (enhancement, bug, feature)."
+    pattern: event-driven
+    trigger: type_specified
+    priority: medium
+    outputs:
+      - "Formatted issue body"
+    verification: "Body follows selected template structure"
+
+  R-FI-005:
+    domain: validation
+    statement: "The SKILL shall validate required fields (title, type, body) before filing."
+    pattern: ubiquitous
+    priority: high
+    outputs:
+      - "Validation result"
+    verification: "Filing blocked if required fields missing"
+
+  R-FI-006:
+    domain: reporting
+    statement: "WHEN sanitization occurs, the SKILL shall report all sanitization actions taken."
+    pattern: event-driven
+    trigger: sanitization_applied
+    priority: medium
+    outputs:
+      - "Sanitization report"
+    verification: "Report lists each redaction performed"
+
+test_cases:
+  T-FI-001:
+    capability: "R-FI-001"
+    scenario: "Private agent routes to private repo"
+    given: "Agent is private-supervisor-AGET type"
+    when: "Issue filed"
+    then: "Destination is gmelli/aget-aget"
+    verification_method: "manual"
+
+  T-FI-002:
+    capability: "R-FI-002"
+    scenario: "Sanitize private content for public repo"
+    given: "Body contains 'private-work-supervisor-AGET noticed an issue'"
+    when: "Filing to public repo"
+    then: "Private agent name replaced with [PRIVATE-AGENT]"
+    verification_method: "manual"
+
+  T-FI-003:
+    capability: "R-FI-005"
+    scenario: "Reject issue without title"
+    given: "Issue body provided but no title"
+    when: "Filing attempted"
+    then: "Filing blocked with validation error"
+    verification_method: "manual"
+
+constraints:
+  C-FI-001:
+    statement: "The SKILL shall NEVER file to public repo from private agent without sanitization."
+    rationale: "INVIOLABLE — prevents private info exposure per L520"
+
+  C-FI-002:
+    statement: "The SKILL shall NEVER include private agent names in public issues."
+    rationale: "INVIOLABLE — private-*-aget and private-*-AGET patterns must be redacted"
+
+  C-FI-003:
+    statement: "The SKILL shall NEVER include fleet size disclosures in public issues."
+    rationale: "INVIOLABLE — internal capacity is proprietary"
+
+  C-FI-004:
+    statement: "The SKILL shall NEVER include internal repo references in public issues."
+    rationale: "INVIOLABLE — gmelli/* references are private"
+
+  C-FI-005:
+    statement: "The SKILL shall ALWAYS validate destination before filing."
+    rationale: "Destination validation prevents misrouting"
+
+  C-FI-006:
+    statement: "The SKILL shall ALWAYS report sanitization actions taken."
+    rationale: "Transparency enables audit of redactions"

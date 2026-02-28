@@ -3,6 +3,9 @@
 
 Tests that supervisor-specific configuration is present and valid.
 Part of AGET framework v2.7 supervisor template standards.
+
+Validates: CAP-SUP-001 (fleet oversight), CAP-SUP-002 (work distribution),
+           INV-SUP-001, INV-SUP-002, L99, L099
 """
 
 import pytest
@@ -11,7 +14,7 @@ from pathlib import Path
 
 
 def test_supervisor_domain():
-    """Supervisor agents must have domain='supervision' in version.json."""
+    """Supervisor agents must have domain='supervision' in version.json. [CAP-SUP-001]"""
     version_file = Path(".aget/version.json")
     assert version_file.exists(), "version.json not found"
 
@@ -41,7 +44,7 @@ def test_supervisor_instance_type():
 
 
 def test_supervisor_coordination_directory():
-    """Supervisor template must have .aget/coordination/ directory."""
+    """Supervisor template must have .aget/coordination/ directory. [CAP-SUP-002]"""
     coordination_dir = Path(".aget/coordination")
     # Directory may not exist in template but should be documented
     # This test passes if documented in AGENTS.md
@@ -56,7 +59,7 @@ def test_supervisor_coordination_directory():
 
 
 def test_supervisor_patterns_documented():
-    """Supervisor template must document L99 and L099 patterns."""
+    """Supervisor template must document L99 and L099 patterns. [INV-SUP-001, INV-SUP-002]"""
     agents_md = Path("AGENTS.md")
     assert agents_md.exists(), "AGENTS.md not found"
 

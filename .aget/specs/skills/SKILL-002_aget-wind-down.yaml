@@ -24,7 +24,7 @@ spec:
       - "Wind_Down_Protocol"
 
 capabilities:
-  WD-001:
+  R-WD-001:
     domain: invocation
     statement: "WHEN user invokes `/aget-wind-down`, the SKILL shall run the wind-down script and display session summary."
     pattern: event-driven
@@ -40,7 +40,7 @@ capabilities:
       - "Suggested commit message"
     verification: "Output includes session summary"
 
-  WD-002:
+  R-WD-002:
     domain: execution
     statement: "WHEN wind-down script exists, the SKILL shall execute `python3 scripts/wind_down.py`."
     pattern: event-driven
@@ -48,7 +48,7 @@ capabilities:
     priority: high
     verification: "Script executes and produces summary"
 
-  WD-003:
+  R-WD-003:
     domain: sanity
     statement: "The SKILL shall run sanity checks via housekeeping protocol before session close."
     pattern: ubiquitous
@@ -57,7 +57,7 @@ capabilities:
       - "Sanity: [healthy/warnings/errors]"
     verification: "Sanity status reported"
 
-  WD-004:
+  R-WD-004:
     domain: reentry
     statement: "WHEN wind-down was run within 5 minutes, the SKILL shall block with exit code 4 unless --force is used."
     pattern: conditional
@@ -69,21 +69,21 @@ capabilities:
       - "Re-entrancy guard message"
     verification: "Blocked if run within 5 minutes"
 
-  WD-005:
+  R-WD-005:
     domain: options
     statement: "WHERE user provides --skip-sanity flag, the SKILL shall skip sanity check execution."
     pattern: optional
     priority: low
     verification: "Sanity skipped when flag present"
 
-  WD-006:
+  R-WD-006:
     domain: options
     statement: "WHERE user provides --force flag, the SKILL shall bypass re-entrancy guard."
     pattern: optional
     priority: low
     verification: "Guard bypassed when flag present"
 
-  WD-007:
+  R-WD-007:
     domain: output
     statement: "The SKILL shall suggest a commit message based on session activity."
     pattern: ubiquitous
@@ -94,7 +94,7 @@ capabilities:
 
 test_cases:
   T-WD-001:
-    capability: "WD-001"
+    capability: "R-WD-001"
     scenario: "Normal wind-down execution"
     given: "Active session with uncommitted changes"
     when: "User runs `/aget-wind-down`"
@@ -102,7 +102,7 @@ test_cases:
     verification_method: "manual"
 
   T-WD-002:
-    capability: "WD-004"
+    capability: "R-WD-004"
     scenario: "Re-entrancy guard blocks rapid execution"
     given: "Wind-down run 2 minutes ago"
     when: "User runs `/aget-wind-down` again"
@@ -110,7 +110,7 @@ test_cases:
     verification_method: "automated"
 
   T-WD-003:
-    capability: "WD-006"
+    capability: "R-WD-006"
     scenario: "Force flag bypasses guard"
     given: "Wind-down run 2 minutes ago"
     when: "User runs `/aget-wind-down --force`"

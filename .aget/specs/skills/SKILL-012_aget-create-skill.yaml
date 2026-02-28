@@ -23,7 +23,7 @@ spec:
       - "SKILL_MD"
 
 capabilities:
-  CS-001:
+  R-CS-001:
     domain: invocation
     statement: "WHEN user invokes `/aget-create-skill {name}`, the SKILL shall create SKILL.md implementation."
     pattern: event-driven
@@ -33,14 +33,14 @@ capabilities:
       - ".claude/skills/{name}/SKILL.md"
     verification: "SKILL.md created"
 
-  CS-002:
+  R-CS-002:
     domain: validation
     statement: "The SKILL shall validate skill name follows aget-{verb}-{object} pattern."
     pattern: ubiquitous
     priority: critical
     verification: "Invalid names rejected"
 
-  CS-003:
+  R-CS-003:
     domain: proposal
     statement: "WHERE approved proposal exists, the SKILL shall use proposal content to populate SKILL.md."
     pattern: optional
@@ -50,7 +50,7 @@ capabilities:
       - "planning/skill-proposals/PROPOSAL_{name}.md"
     verification: "Proposal content used"
 
-  CS-004:
+  R-CS-004:
     domain: structure
     statement: "The SKILL shall create SKILL.md with YAML frontmatter (name, description, allowed-tools)."
     pattern: ubiquitous
@@ -59,14 +59,14 @@ capabilities:
       - "YAML frontmatter block"
     verification: "Frontmatter valid YAML"
 
-  CS-005:
+  R-CS-005:
     domain: structure
     statement: "The SKILL shall include Instructions, Constraints, and Traceability sections."
     pattern: ubiquitous
     priority: high
     verification: "Required sections present"
 
-  CS-006:
+  R-CS-006:
     domain: directory
     statement: "The SKILL shall create .claude/skills/{name}/ directory if not exists."
     pattern: ubiquitous
@@ -75,7 +75,7 @@ capabilities:
 
 test_cases:
   T-CS-001:
-    capability: "CS-001"
+    capability: "R-CS-001"
     scenario: "Skill creation with valid name"
     given: "Valid skill name aget-review-plan"
     when: "User runs `/aget-create-skill aget-review-plan`"
@@ -83,7 +83,7 @@ test_cases:
     verification_method: "automated"
 
   T-CS-002:
-    capability: "CS-002"
+    capability: "R-CS-002"
     scenario: "Invalid name rejected"
     given: "Name 'my-skill' without aget- prefix"
     when: "User runs `/aget-create-skill my-skill`"
@@ -91,7 +91,7 @@ test_cases:
     verification_method: "manual"
 
   T-CS-003:
-    capability: "CS-003"
+    capability: "R-CS-003"
     scenario: "Proposal content integrated"
     given: "Approved PROPOSAL_aget-review-plan.md exists"
     when: "User runs `/aget-create-skill aget-review-plan`"

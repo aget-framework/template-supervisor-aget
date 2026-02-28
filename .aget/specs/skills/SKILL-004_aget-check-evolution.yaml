@@ -23,7 +23,7 @@ spec:
       - "Evolution_Directory"
 
 capabilities:
-  HE-001:
+  R-HE-001:
     domain: invocation
     statement: "WHEN user invokes `/aget-check-evolution`, the SKILL shall analyze .aget/evolution/ and report health status."
     pattern: event-driven
@@ -34,7 +34,7 @@ capabilities:
       - "File counts and disk usage"
     verification: "Health status displayed with metrics"
 
-  HE-002:
+  R-HE-002:
     domain: file_inventory
     statement: "The SKILL shall count total files, L-docs, and non-conforming files in .aget/evolution/."
     pattern: ubiquitous
@@ -45,7 +45,7 @@ capabilities:
       - "Non-conforming files list"
     verification: "Counts match actual directory contents"
 
-  HE-003:
+  R-HE-003:
     domain: naming
     statement: "The SKILL shall identify files not matching L###_*.md pattern (excluding index.json, README.md)."
     pattern: ubiquitous
@@ -54,7 +54,7 @@ capabilities:
       - "Non-conforming files list"
     verification: "Non-standard files detected and listed"
 
-  HE-004:
+  R-HE-004:
     domain: disk_usage
     statement: "The SKILL shall report disk usage of .aget/evolution/ directory."
     pattern: ubiquitous
@@ -63,7 +63,7 @@ capabilities:
       - "Disk size in human-readable format"
     verification: "Disk usage reported accurately"
 
-  HE-005:
+  R-HE-005:
     domain: index_integrity
     statement: "The SKILL shall validate index.json exists and is valid JSON."
     pattern: ubiquitous
@@ -72,14 +72,14 @@ capabilities:
       - "Index Status: valid | invalid | missing"
     verification: "Index integrity checked"
 
-  HE-006:
+  R-HE-006:
     domain: thresholds
     statement: "WHEN total files exceeds 750 OR disk exceeds 25MB OR non-standard exceeds 50, the SKILL shall report CRITICAL."
     pattern: conditional
     priority: high
     verification: "CRITICAL reported at threshold breach"
 
-  HE-007:
+  R-HE-007:
     domain: thresholds
     statement: "WHEN total files exceeds 500 OR disk exceeds 10MB OR non-standard exceeds 10, the SKILL shall report WARN."
     pattern: conditional
@@ -88,7 +88,7 @@ capabilities:
 
 test_cases:
   T-HE-001:
-    capability: "HE-001"
+    capability: "R-HE-001"
     scenario: "Healthy evolution directory"
     given: "94 files, 800K disk (within OK thresholds)"
     when: "User runs `/aget-check-evolution`"
@@ -96,7 +96,7 @@ test_cases:
     verification_method: "automated"
 
   T-HE-002:
-    capability: "HE-005"
+    capability: "R-HE-005"
     scenario: "Invalid index.json detected"
     given: "index.json contains invalid JSON"
     when: "User runs `/aget-check-evolution`"
@@ -104,7 +104,7 @@ test_cases:
     verification_method: "manual"
 
   T-HE-003:
-    capability: "HE-003"
+    capability: "R-HE-003"
     scenario: "Non-conforming files detected"
     given: "File named 'notes.txt' in evolution/"
     when: "User runs `/aget-check-evolution`"

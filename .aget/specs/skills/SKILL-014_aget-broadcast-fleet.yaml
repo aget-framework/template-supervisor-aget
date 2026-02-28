@@ -1,0 +1,110 @@
+# SKILL-014: aget-broadcast-fleet
+# Purpose: Send communications to fleet members
+# Created: 2026-02-27
+# Based on: CAP-SUP-001, L511, SKILL_SPEC_TEMPLATE.yaml
+
+spec:
+  id: SKILL-014
+  name: aget-broadcast-fleet
+  version: 1.0.0
+  status: production
+  created: 2026-02-27
+  format: "EARS with controlled vocabulary"
+  category: Supervision
+  scope: "Send announcements, directives, and release handoffs to fleet members"
+
+  traceability:
+    skill_md: ".claude/skills/aget-broadcast-fleet/SKILL.md"
+    l_docs:
+      - "L511: Release-to-Fleet Propagation"
+    vocabulary_terms:
+      - "Fleet"
+      - "Broadcast"
+      - "Release_Handoff"
+
+capabilities:
+  R-BF-001:
+    domain: classification
+    statement: "WHEN broadcasting to fleet, the SKILL shall determine message type as Announcement, Directive, or Handoff."
+    pattern: ubiquitous
+    priority: critical
+    outputs:
+      - "Message type classification"
+    verification: "Message type is one of the three valid categories"
+
+  R-BF-002:
+    domain: targeting
+    statement: "WHEN broadcasting, the SKILL shall resolve targets as all fleet, by portfolio, or specific agents."
+    pattern: ubiquitous
+    priority: critical
+    outputs:
+      - "Resolved target list"
+    verification: "Target list contains only agents within supervisor scope"
+
+  R-BF-003:
+    domain: formatting
+    statement: "WHEN message type is determined, the SKILL shall format using type-appropriate templates."
+    pattern: event-driven
+    trigger: type_determined
+    priority: high
+    outputs:
+      - "Formatted broadcast message"
+    verification: "Message follows template structure for its type"
+
+  R-BF-004:
+    domain: delivery
+    statement: "WHEN targets resolved, the SKILL shall create handoff artifacts per target and track delivery status."
+    pattern: event-driven
+    trigger: targets_resolved
+    priority: high
+    outputs:
+      - "Handoff files per target"
+      - "Delivery status log"
+    verification: "One artifact per target; delivery log created"
+
+  R-BF-005:
+    domain: output
+    statement: "The SKILL shall output Fleet Broadcast summary with targets table, message content, and tracking checklist."
+    pattern: ubiquitous
+    priority: medium
+    outputs:
+      - "Fleet Broadcast summary"
+    verification: "Summary contains all required sections"
+
+test_cases:
+  T-BF-001:
+    capability: "R-BF-001"
+    scenario: "Classify announcement broadcast"
+    given: "User requests fleet-wide announcement"
+    when: "Skill processes message"
+    then: "Message classified as Announcement"
+    verification_method: "manual"
+
+  T-BF-002:
+    capability: "R-BF-002"
+    scenario: "Resolve portfolio-scoped targets"
+    given: "User specifies portfolio 'main'"
+    when: "Skill resolves targets"
+    then: "Only agents in 'main' portfolio are targeted"
+    verification_method: "manual"
+
+  T-BF-003:
+    capability: "R-BF-004"
+    scenario: "Create handoff artifacts"
+    given: "3 target agents resolved"
+    when: "Skill creates artifacts"
+    then: "3 handoff files created, delivery log shows 3 entries"
+    verification_method: "manual"
+
+constraints:
+  C-BF-001:
+    statement: "The SKILL shall NOT broadcast without target confirmation."
+    rationale: "Prevent unintended fleet-wide messages"
+
+  C-BF-002:
+    statement: "The SKILL shall NOT modify agent configurations during broadcast."
+    rationale: "Broadcast is communication, not configuration"
+
+  C-BF-003:
+    statement: "The SKILL shall NOT suppress delivery failures."
+    rationale: "Failed deliveries must be visible for follow-up"

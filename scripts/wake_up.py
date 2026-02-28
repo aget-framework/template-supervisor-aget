@@ -28,7 +28,7 @@ L021 Verification Table:
     | 3 | .aget/ dir | Verify exists before reading |
     | 4 | config.json | Load with defaults if missing |
 
-Author: private-aget-framework-AGET (canonical template)
+Author: AGET Framework Team (canonical template)
 Version: 1.0.0 (v3.1.0)
 """
 

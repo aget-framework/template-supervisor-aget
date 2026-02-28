@@ -3,7 +3,7 @@
 #
 # Archetype: supervisor
 # Created: 2026-02-14
-# Author: private-aget-framework-AGET
+# Author: AGET Framework Team
 # Format: SKOS-inspired YAML (aget-framework convention)
 # Concepts: 8
 # Project: ARC-001 (Archetype Customization v3.5)
@@ -14,7 +14,7 @@ metadata:
   name: supervisor-archetype-ontology
   version: 1.0.0
   created: 2026-02-14
-  author: private-aget-framework-AGET
+  author: AGET Framework Team
   archetype: supervisor
   description: >
     Formal vocabulary for supervisor archetype agents. Defines concepts for
@@ -348,10 +348,10 @@ collections:
 provenance:
   project: ARC-001
   created: 2026-02-14
-  author: private-aget-framework-AGET
+  author: AGET Framework Team
   methodology: >
     Derived from supervisor archetype SUPERVISOR_SPEC.md, L463 entity-archetype
-    alignment, and operational patterns observed in private-supervisor-AGET.
+    alignment, and operational patterns observed in production supervisor instances.
   relatedLdocs:
     - L463_entity_archetype_alignment.md
     - L511_release_to_fleet_propagation_gap.md

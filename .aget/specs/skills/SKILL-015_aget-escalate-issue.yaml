@@ -1,0 +1,110 @@
+# SKILL-015: aget-escalate-issue
+# Purpose: Escalate issues to higher authority when they exceed current scope
+# Created: 2026-02-27
+# Based on: CAP-SUP-003, SKILL_SPEC_TEMPLATE.yaml
+
+spec:
+  id: SKILL-015
+  name: aget-escalate-issue
+  version: 1.0.0
+  status: production
+  created: 2026-02-27
+  format: "EARS with controlled vocabulary"
+  category: Supervision
+  scope: "Escalate issues that exceed current authority with structured documentation"
+
+  traceability:
+    skill_md: ".claude/skills/aget-escalate-issue/SKILL.md"
+    l_docs: []
+    vocabulary_terms:
+      - "Escalation"
+      - "Intervention"
+      - "Authority"
+
+capabilities:
+  R-EI-001:
+    domain: validation
+    statement: "WHEN an issue is proposed for escalation, the SKILL shall verify it exceeds current authority."
+    pattern: event-driven
+    trigger: escalation_request
+    priority: critical
+    outputs:
+      - "Authority assessment"
+    verification: "Escalation blocked if issue is within current authority"
+
+  R-EI-002:
+    domain: documentation
+    statement: "WHEN escalation is confirmed needed, the SKILL shall document issue description, impact assessment, and prior resolution attempts."
+    pattern: event-driven
+    trigger: authority_exceeded
+    priority: critical
+    outputs:
+      - "Structured escalation document"
+    verification: "Document contains all three required sections"
+
+  R-EI-003:
+    domain: routing
+    statement: "WHEN documenting escalation, the SKILL shall identify appropriate escalation path and decision authority needed."
+    pattern: event-driven
+    trigger: documentation_created
+    priority: high
+    outputs:
+      - "Escalation target"
+      - "Required authority level"
+    verification: "Target is a valid supervisor or authority"
+
+  R-EI-004:
+    domain: classification
+    statement: "The SKILL shall classify urgency as Low, Medium, High, or Critical."
+    pattern: ubiquitous
+    priority: high
+    outputs:
+      - "Urgency classification"
+    verification: "Urgency is one of four valid levels"
+
+  R-EI-005:
+    domain: tracking
+    statement: "The SKILL shall assign tracking ID in ESC-[YYYY]-[NNN] format."
+    pattern: ubiquitous
+    priority: medium
+    outputs:
+      - "Escalation tracking ID"
+    verification: "ID follows ESC-YYYY-NNN format"
+
+test_cases:
+  T-EI-001:
+    capability: "R-EI-001"
+    scenario: "Block escalation within authority"
+    given: "Issue is within agent's declared scope"
+    when: "Escalation requested"
+    then: "Escalation rejected with authority explanation"
+    verification_method: "manual"
+
+  T-EI-002:
+    capability: "R-EI-002"
+    scenario: "Create structured escalation document"
+    given: "Issue exceeds agent authority"
+    when: "Escalation proceeds"
+    then: "Document has description, impact, and prior attempts sections"
+    verification_method: "manual"
+
+  T-EI-003:
+    capability: "R-EI-005"
+    scenario: "Assign tracking ID"
+    given: "Escalation approved"
+    when: "Skill creates escalation"
+    then: "ID matches ESC-YYYY-NNN format"
+    verification_method: "manual"
+
+constraints:
+  C-EI-001:
+    statement: "The SKILL shall NOT escalate issues within current authority."
+    rationale: "Unnecessary escalation wastes supervisor capacity"
+
+  C-EI-002:
+    statement: "The SKILL shall NOT escalate without documenting prior resolution attempts."
+    rationale: "Context prevents redundant investigation"
+
+  C-EI-003:
+    statement: "The SKILL shall NOT set urgency inappropriately high."
+    rationale: "Urgency inflation degrades trust and prioritization"

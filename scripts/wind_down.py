@@ -32,7 +32,7 @@ L021 Verification Table:
     | 3 | planning/ | Scan for pending work |
     | 4 | sessions/ | Verify exists before writing |
 
-Author: private-aget-framework-AGET (canonical template)
+Author: AGET Framework Team (canonical template)
 Version: 1.2.0 (v3.4.0) - WD-007 commit message suggestion
 """
 

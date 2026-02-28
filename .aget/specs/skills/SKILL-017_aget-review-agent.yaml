@@ -1,0 +1,111 @@
+# SKILL-017: aget-review-agent
+# Purpose: Review a specific agent's health, conformance, and recent activity
+# Created: 2026-02-27
+# Based on: CAP-SUP-002, SKILL_SPEC_TEMPLATE.yaml
+
+spec:
+  id: SKILL-017
+  name: aget-review-agent
+  version: 1.0.0
+  status: production
+  created: 2026-02-27
+  format: "EARS with controlled vocabulary"
+  category: Supervision
+  scope: "Assess agent health, conformance level, and recent activity with recommendations"
+
+  traceability:
+    skill_md: ".claude/skills/aget-review-agent/SKILL.md"
+    l_docs: []
+    vocabulary_terms:
+      - "Agent_Registry"
+      - "Agent_Status"
+      - "Fleet_Audit"
+
+capabilities:
+  R-RA-001:
+    domain: validation
+    statement: "WHEN reviewing an agent, the SKILL shall verify the agent exists in fleet registry and is within supervisor scope."
+    pattern: event-driven
+    trigger: review_request
+    priority: critical
+    outputs:
+      - "Agent existence confirmation"
+      - "Portfolio membership"
+    verification: "Review blocked for agents outside supervisor scope"
+
+  R-RA-002:
+    domain: health
+    statement: "WHEN agent is verified, the SKILL shall assess version currency, configuration validity, and dependency status."
+    pattern: event-driven
+    trigger: agent_verified
+    priority: high
+    outputs:
+      - "Health score (Good/Fair/Poor)"
+    verification: "Health score reflects actual agent state"
+
+  R-RA-003:
+    domain: conformance
+    statement: "The SKILL shall check agent conformance level (L0-L5), identify gaps, and report compliance issues."
+    pattern: ubiquitous
+    priority: high
+    outputs:
+      - "Conformance level"
+      - "Gap list"
+    verification: "Conformance level matches actual structure audit"
+
+  R-RA-004:
+    domain: activity
+    statement: "The SKILL shall review recent sessions, commits, and issues within 7-day and 30-day periods."
+    pattern: ubiquitous
+    priority: medium
+    outputs:
+      - "Activity summary"
+    verification: "Activity counts match actual git/session data"
+
+  R-RA-005:
+    domain: recommendations
+    statement: "WHEN assessment complete, the SKILL shall generate priority improvements, upgrade guidance, and risk flags."
+    pattern: event-driven
+    trigger: assessment_complete
+    priority: medium
+    outputs:
+      - "Recommendation list"
+    verification: "Recommendations are actionable and prioritized"
+
+test_cases:
+  T-RA-001:
+    capability: "R-RA-001"
+    scenario: "Block review of out-of-scope agent"
+    given: "Agent not in supervisor's fleet registry"
+    when: "Review requested"
+    then: "Review blocked with scope explanation"
+    verification_method: "manual"
+
+  T-RA-002:
+    capability: "R-RA-002"
+    scenario: "Assess agent with outdated version"
+    given: "Agent running v3.4.0, fleet at v3.6.0"
+    when: "Health assessed"
+    then: "Health score reflects version lag"
+    verification_method: "manual"
+
+  T-RA-003:
+    capability: "R-RA-003"
+    scenario: "Identify conformance gaps"
+    given: "Agent missing governance/ directory"
+    when: "Conformance checked"
+    then: "L2 conformance with governance gap identified"
+    verification_method: "manual"
+
+constraints:
+  C-RA-001:
+    statement: "The SKILL shall NOT review agents outside supervisor's fleet."
+    rationale: "Scope boundary enforcement"
+
+  C-RA-002:
+    statement: "The SKILL shall NOT modify agent during review."
+    rationale: "Review is read-only assessment"
+
+  C-RA-003:
+    statement: "The SKILL shall NOT expose sensitive agent configurations."
+    rationale: "Security boundary between agents"

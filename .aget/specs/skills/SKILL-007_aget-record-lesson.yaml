@@ -25,7 +25,7 @@ spec:
       - "Domain_Belief"
 
 capabilities:
-  RL-001:
+  R-RL-001:
     domain: invocation
     statement: "WHEN user invokes `/aget-record-lesson`, the SKILL shall gather context and create a structured lesson document."
     pattern: event-driven
@@ -36,7 +36,7 @@ capabilities:
       - "Classification confirmation"
     verification: "Lesson document created"
 
-  RL-002:
+  R-RL-002:
     domain: classification
     statement: "The SKILL shall ask user to classify lesson as Framework or Domain before writing."
     pattern: ubiquitous
@@ -45,7 +45,7 @@ capabilities:
       - "Classification: Framework | Domain"
     verification: "User confirms classification"
 
-  RL-003:
+  R-RL-003:
     domain: framework
     statement: "WHEN lesson is classified as Framework, the SKILL shall create L-doc in .aget/evolution/L###_*.md."
     pattern: event-driven
@@ -56,7 +56,7 @@ capabilities:
       - "Updated index.json"
     verification: "L-doc created with next ID"
 
-  RL-004:
+  R-RL-004:
     domain: domain
     statement: "WHEN lesson is classified as Domain, the SKILL shall create file in knowledge/patterns/."
     pattern: event-driven
@@ -66,7 +66,7 @@ capabilities:
       - "knowledge/patterns/{category}/{name}.md"
     verification: "Domain knowledge file created"
 
-  RL-005:
+  R-RL-005:
     domain: id_management
     statement: "WHEN creating Framework L-doc, the SKILL shall read next_id from index.json and increment after use."
     pattern: event-driven
@@ -74,7 +74,7 @@ capabilities:
     priority: high
     verification: "ID assigned and incremented"
 
-  RL-006:
+  R-RL-006:
     domain: structure
     statement: "The SKILL shall use L-doc template with Summary, Context, Key Finding, Implications, Traceability sections."
     pattern: ubiquitous
@@ -83,7 +83,7 @@ capabilities:
 
 test_cases:
   T-RL-001:
-    capability: "RL-002"
+    capability: "R-RL-002"
     scenario: "Classification prompt displayed"
     given: "User provides lesson description"
     when: "User runs `/aget-record-lesson`"
@@ -91,7 +91,7 @@ test_cases:
     verification_method: "manual"
 
   T-RL-002:
-    capability: "RL-003"
+    capability: "R-RL-003"
     scenario: "Framework lesson creation"
     given: "User classifies lesson as Framework"
     when: "Classification confirmed"
@@ -99,7 +99,7 @@ test_cases:
     verification_method: "manual"
 
   T-RL-003:
-    capability: "RL-004"
+    capability: "R-RL-004"
     scenario: "Domain lesson creation"
     given: "User classifies lesson as Domain"
     when: "Classification confirmed"

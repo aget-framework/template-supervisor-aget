@@ -23,7 +23,7 @@ spec:
       - "Sanity_Check"
 
 capabilities:
-  SC-001:
+  R-SC-001:
     domain: invocation
     statement: "WHEN user invokes `/aget-check-health`, the SKILL shall run housekeeping protocol and report health status."
     pattern: event-driven
@@ -36,7 +36,7 @@ capabilities:
       - "Check results per category"
     verification: "Health status displayed"
 
-  SC-002:
+  R-SC-002:
     domain: structure
     statement: "The SKILL shall verify .aget/ directory structure exists and is valid."
     pattern: ubiquitous
@@ -45,7 +45,7 @@ capabilities:
       - "Structure: PASS/WARN/FAIL"
     verification: "Structure check reports accurately"
 
-  SC-003:
+  R-SC-003:
     domain: version
     statement: "The SKILL shall verify version.json exists and contains valid version data."
     pattern: ubiquitous
@@ -54,7 +54,7 @@ capabilities:
       - "Version: PASS/WARN/FAIL"
     verification: "Version check validates JSON structure"
 
-  SC-004:
+  R-SC-004:
     domain: identity
     statement: "WHERE identity.json exists, the SKILL shall validate its contents."
     pattern: optional
@@ -63,7 +63,7 @@ capabilities:
       - "Identity: PASS/WARN/FAIL"
     verification: "Identity validated when present"
 
-  SC-005:
+  R-SC-005:
     domain: governance
     statement: "The SKILL shall verify governance/ directory contents if present."
     pattern: optional
@@ -72,7 +72,7 @@ capabilities:
       - "Governance: PASS/WARN/FAIL"
     verification: "Governance check runs when directory exists"
 
-  SC-006:
+  R-SC-006:
     domain: options
     statement: "WHERE user provides --json flag, the SKILL shall output machine-readable JSON."
     pattern: optional
@@ -81,7 +81,7 @@ capabilities:
       - "JSON formatted output"
     verification: "Valid JSON output with --json flag"
 
-  SC-007:
+  R-SC-007:
     domain: options
     statement: "WHERE user provides --fix flag, the SKILL shall attempt auto-fixes for known issues."
     pattern: optional
@@ -92,7 +92,7 @@ capabilities:
 
 test_cases:
   T-SC-001:
-    capability: "SC-001"
+    capability: "R-SC-001"
     scenario: "Healthy agent sanity check"
     given: "Valid .aget/ structure with version.json"
     when: "User runs `/aget-check-health`"
@@ -100,7 +100,7 @@ test_cases:
     verification_method: "automated"
 
   T-SC-002:
-    capability: "SC-003"
+    capability: "R-SC-003"
     scenario: "Missing version.json detected"
     given: ".aget/version.json does not exist"
     when: "User runs `/aget-check-health`"
@@ -108,7 +108,7 @@ test_cases:
     verification_method: "manual"
 
   T-SC-003:
-    capability: "SC-006"
+    capability: "R-SC-006"
     scenario: "JSON output format"
     given: "Any agent state"
     when: "User runs `/aget-check-health --json`"

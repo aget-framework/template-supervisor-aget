@@ -23,7 +23,7 @@ spec:
       - "Health_Status"
 
 capabilities:
-  RP-001:
+  R-RP-001:
     domain: invocation
     statement: "WHEN user invokes `/aget-review-project`, the SKILL shall analyze project plan and report health."
     pattern: event-driven
@@ -34,7 +34,7 @@ capabilities:
       - "Health Status: OK | WARN | CRITICAL"
     verification: "Review report generated"
 
-  RP-002:
+  R-RP-002:
     domain: location
     statement: "WHEN path argument provided, the SKILL shall analyze that specific project plan."
     pattern: event-driven
@@ -42,7 +42,7 @@ capabilities:
     priority: high
     verification: "Specified project analyzed"
 
-  RP-003:
+  R-RP-003:
     domain: location
     statement: "WHEN no path provided, the SKILL shall search planning/PROJECT_PLAN_*.md for active projects."
     pattern: event-driven
@@ -50,7 +50,7 @@ capabilities:
     priority: medium
     verification: "Active projects discovered"
 
-  RP-004:
+  R-RP-004:
     domain: parsing
     statement: "The SKILL shall extract: metadata, gates, success criteria, and risks from project plan."
     pattern: ubiquitous
@@ -59,7 +59,7 @@ capabilities:
       - "Parsed project structure"
     verification: "All sections extracted"
 
-  RP-005:
+  R-RP-005:
     domain: evaluation
     statement: "The SKILL shall count V-tests and calculate completion percentage per gate."
     pattern: ubiquitous
@@ -69,7 +69,7 @@ capabilities:
       - "Overall completion percentage"
     verification: "Counts accurate"
 
-  RP-006:
+  R-RP-006:
     domain: blockers
     statement: "The SKILL shall identify failed V-tests, blocked items, and materialized risks."
     pattern: ubiquitous
@@ -78,7 +78,7 @@ capabilities:
       - "Blockers list"
     verification: "Blockers identified"
 
-  RP-007:
+  R-RP-007:
     domain: recommendations
     statement: "The SKILL shall generate actionable recommendations based on evaluation."
     pattern: ubiquitous
@@ -91,7 +91,7 @@ capabilities:
 
 test_cases:
   T-RP-001:
-    capability: "RP-001"
+    capability: "R-RP-001"
     scenario: "Healthy project review"
     given: "Project with 17/17 V-tests passed"
     when: "User runs `/aget-review-project`"
@@ -99,7 +99,7 @@ test_cases:
     verification_method: "automated"
 
   T-RP-002:
-    capability: "RP-006"
+    capability: "R-RP-006"
     scenario: "Blockers detected"
     given: "Project with 2 failed V-tests and 1 BLOCKED item"
     when: "User runs `/aget-review-project`"
@@ -107,7 +107,7 @@ test_cases:
     verification_method: "manual"
 
   T-RP-003:
-    capability: "RP-003"
+    capability: "R-RP-003"
     scenario: "Multiple projects prompt"
     given: "3 active projects in planning/"
     when: "User runs `/aget-review-project` without path"

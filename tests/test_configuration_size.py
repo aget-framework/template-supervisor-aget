@@ -3,6 +3,8 @@
 
 Tests that AGENTS.md stays under 40,000 character limit (L146).
 Part of AGET framework v2.6+ configuration size management standards.
+
+Validates: CAP-TPL-004 (AGENTS.md requirements), L146
 """
 
 import pytest
@@ -10,7 +12,7 @@ from pathlib import Path
 
 
 def test_agents_md_size_limit():
-    """AGENTS.md must be under 40,000 characters (L146)."""
+    """AGENTS.md must be under 40,000 characters. [CAP-TPL-004, L146]"""
     agents_md = Path("AGENTS.md")
     assert agents_md.exists(), "AGENTS.md not found"
 

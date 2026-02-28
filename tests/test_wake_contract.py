@@ -3,6 +3,9 @@
 
 Tests that wake protocol correctly reports agent identity, version, and capabilities.
 Part of AGET framework v2.5 validation standards.
+
+Validates: R-WU-001 (wake-up displays status), CAP-TPL-002 (version.json),
+           CAP-TPL-003 (identity.json)
 """
 
 import pytest
@@ -11,7 +14,7 @@ from pathlib import Path
 
 
 def test_wake_protocol_reports_agent_name():
-    """Wake protocol must report agent name from version.json (if present)."""
+    """Wake protocol must report agent name from version.json (if present). [R-WU-001, CAP-TPL-002]"""
     version_file = Path(".aget/version.json")
     assert version_file.exists(), "version.json not found"
 
@@ -25,7 +28,7 @@ def test_wake_protocol_reports_agent_name():
 
 
 def test_wake_protocol_reports_version():
-    """Wake protocol must report current AGET version."""
+    """Wake protocol must report current AGET version. [R-WU-001, CAP-TPL-002]"""
     version_file = Path(".aget/version.json")
     assert version_file.exists(), "version.json not found"
 

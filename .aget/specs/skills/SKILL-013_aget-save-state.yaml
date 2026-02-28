@@ -24,7 +24,7 @@ spec:
       - "Session_State"
 
 capabilities:
-  SS-001:
+  R-SS-001:
     domain: invocation
     statement: "WHEN user invokes `/aget-save-state`, the SKILL shall create a checkpoint file."
     pattern: event-driven
@@ -34,7 +34,7 @@ capabilities:
       - "sessions/checkpoints/{name}.checkpoint.yaml"
     verification: "Checkpoint file created"
 
-  SS-002:
+  R-SS-002:
     domain: naming
     statement: "WHEN invoked with no arguments, the SKILL shall generate timestamp-based name (YYYYMMDD-HHMMSS)."
     pattern: event-driven
@@ -42,7 +42,7 @@ capabilities:
     priority: high
     verification: "Timestamp name generated"
 
-  SS-003:
+  R-SS-003:
     domain: naming
     statement: "WHEN invoked with text argument, the SKILL shall use provided name (sanitized)."
     pattern: event-driven
@@ -50,7 +50,7 @@ capabilities:
     priority: high
     verification: "Custom name used"
 
-  SS-004:
+  R-SS-004:
     domain: content
     statement: "The SKILL shall capture session context, active tasks, and modified files."
     pattern: ubiquitous
@@ -61,7 +61,7 @@ capabilities:
       - "Modified files list"
     verification: "Context captured completely"
 
-  SS-005:
+  R-SS-005:
     domain: content
     statement: "The SKILL shall generate human-readable resume prompt."
     pattern: ubiquitous
@@ -70,14 +70,14 @@ capabilities:
       - "Resume prompt text"
     verification: "Resume prompt actionable"
 
-  SS-006:
+  R-SS-006:
     domain: directory
     statement: "The SKILL shall create sessions/checkpoints/ directory if not exists."
     pattern: ubiquitous
     priority: medium
     verification: "Directory created when needed"
 
-  SS-007:
+  R-SS-007:
     domain: overwrite
     statement: "WHERE checkpoint with same name exists, the SKILL shall overwrite it."
     pattern: optional
@@ -87,7 +87,7 @@ capabilities:
 
 test_cases:
   T-SS-001:
-    capability: "SS-001"
+    capability: "R-SS-001"
     scenario: "Checkpoint creation"
     given: "Active session with uncommitted changes"
     when: "User runs `/aget-save-state`"
@@ -95,7 +95,7 @@ test_cases:
     verification_method: "automated"
 
   T-SS-002:
-    capability: "SS-002"
+    capability: "R-SS-002"
     scenario: "Auto-generated name"
     given: "No name argument provided"
     when: "User runs `/aget-save-state` at 2026-02-10 14:30:00"
@@ -103,7 +103,7 @@ test_cases:
     verification_method: "manual"
 
   T-SS-003:
-    capability: "SS-005"
+    capability: "R-SS-005"
     scenario: "Resume prompt generation"
     given: "Session focused on skill specs"
     when: "User runs `/aget-save-state`"

@@ -25,7 +25,7 @@ spec:
       - "Session_Artifact"
 
 capabilities:
-  CO-001:
+  R-CO-001:
     domain: invocation
     statement: "WHEN user invokes `/aget-capture-observation`, the SKILL shall capture observation to session file."
     pattern: event-driven
@@ -35,7 +35,7 @@ capabilities:
       - "Observation appended to session file"
     verification: "Observation captured"
 
-  CO-002:
+  R-CO-002:
     domain: mode_detection
     statement: "WHEN invoked with no arguments, the SKILL shall scan session for valuable signals (Autonomous mode)."
     pattern: event-driven
@@ -45,7 +45,7 @@ capabilities:
       - "Top 3-5 signals captured"
     verification: "Autonomous scan identifies signals"
 
-  CO-003:
+  R-CO-003:
     domain: mode_detection
     statement: "WHEN invoked with time pattern (e.g., '10min'), the SKILL shall scale depth to time budget."
     pattern: event-driven
@@ -53,7 +53,7 @@ capabilities:
     priority: medium
     verification: "Depth scales with time budget"
 
-  CO-004:
+  R-CO-004:
     domain: mode_detection
     statement: "WHEN invoked with signal text, the SKILL shall classify and route to appropriate section (Explicit mode)."
     pattern: event-driven
@@ -63,14 +63,14 @@ capabilities:
       - "Signal classified and captured"
     verification: "Signal routed to correct section"
 
-  CO-005:
+  R-CO-005:
     domain: classification
     statement: "The SKILL shall classify signals as: vocabulary candidate, research question, web finding, L-doc draft, pattern, process gap, or general observation."
     pattern: ubiquitous
     priority: medium
     verification: "Signals classified correctly"
 
-  CO-006:
+  R-CO-006:
     domain: output
     statement: "The SKILL shall append observations to current session file in sessions/ if one exists."
     pattern: ubiquitous
@@ -79,7 +79,7 @@ capabilities:
 
 test_cases:
   T-CO-001:
-    capability: "CO-002"
+    capability: "R-CO-002"
     scenario: "Autonomous signal detection"
     given: "Session with vocabulary candidates discussed"
     when: "User runs `/aget-capture-observation`"
@@ -87,7 +87,7 @@ test_cases:
     verification_method: "manual"
 
   T-CO-002:
-    capability: "CO-004"
+    capability: "R-CO-004"
     scenario: "Explicit observation capture"
     given: "User provides 'pattern: Gate discipline'"
     when: "User runs `/aget-capture-observation 'pattern: Gate discipline'`"
@@ -95,7 +95,7 @@ test_cases:
     verification_method: "manual"
 
   T-CO-003:
-    capability: "CO-003"
+    capability: "R-CO-003"
     scenario: "Time-budget depth scaling"
     given: "User specifies 20min time budget"
     when: "User runs `/aget-capture-observation 20min`"

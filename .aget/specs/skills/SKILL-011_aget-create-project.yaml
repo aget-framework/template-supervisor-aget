@@ -25,7 +25,7 @@ spec:
       - "Research_Phase"
 
 capabilities:
-  CP-001:
+  R-CP-001:
     domain: invocation
     statement: "WHEN user invokes `/aget-create-project`, the SKILL shall create a research-informed project plan."
     pattern: event-driven
@@ -35,7 +35,7 @@ capabilities:
       - "planning/PROJECT_PLAN_{name}.md"
     verification: "Project plan created"
 
-  CP-002:
+  R-CP-002:
     domain: mode_detection
     statement: "WHEN invoked with type and name, the SKILL shall create project of specified type (Explicit mode)."
     pattern: event-driven
@@ -43,7 +43,7 @@ capabilities:
     priority: high
     verification: "Explicit mode creates correct type"
 
-  CP-003:
+  R-CP-003:
     domain: mode_detection
     statement: "WHEN invoked with topic only, the SKILL shall infer type from topic and AGET domain."
     pattern: event-driven
@@ -51,7 +51,7 @@ capabilities:
     priority: medium
     verification: "Type inferred correctly"
 
-  CP-004:
+  R-CP-004:
     domain: research
     statement: "The SKILL shall read .aget/identity.json before scaffolding."
     pattern: ubiquitous
@@ -60,7 +60,7 @@ capabilities:
       - ".aget/identity.json"
     verification: "Identity informs project context"
 
-  CP-005:
+  R-CP-005:
     domain: research
     statement: "The SKILL shall search relevant L-docs and include in Phase -1 table."
     pattern: ubiquitous
@@ -69,7 +69,7 @@ capabilities:
       - "L-doc Review table populated"
     verification: "Related L-docs included"
 
-  CP-006:
+  R-CP-006:
     domain: conflict_check
     statement: "WHEN project with similar name exists, the SKILL shall WARN and ask for confirmation."
     pattern: conditional
@@ -77,7 +77,7 @@ capabilities:
     priority: medium
     verification: "Duplicate warning displayed"
 
-  CP-007:
+  R-CP-007:
     domain: template
     statement: "The SKILL shall verify template exists before generating project."
     pattern: ubiquitous
@@ -86,7 +86,7 @@ capabilities:
 
 test_cases:
   T-CP-001:
-    capability: "CP-001"
+    capability: "R-CP-001"
     scenario: "Project creation with research"
     given: "Valid project topic"
     when: "User runs `/aget-create-project research skill-specs`"
@@ -94,7 +94,7 @@ test_cases:
     verification_method: "manual"
 
   T-CP-002:
-    capability: "CP-006"
+    capability: "R-CP-006"
     scenario: "Duplicate project warning"
     given: "PROJECT_PLAN_skills_v1.md exists"
     when: "User proposes project named 'skills'"
@@ -102,7 +102,7 @@ test_cases:
     verification_method: "manual"
 
   T-CP-003:
-    capability: "CP-007"
+    capability: "R-CP-007"
     scenario: "Missing template blocks creation"
     given: "Template file does not exist"
     when: "User runs `/aget-create-project`"

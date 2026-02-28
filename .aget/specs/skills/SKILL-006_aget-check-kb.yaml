@@ -23,7 +23,7 @@ spec:
       - "Knowledge_Base"
 
 capabilities:
-  HK-001:
+  R-HK-001:
     domain: invocation
     statement: "WHEN user invokes `/aget-check-kb`, the SKILL shall analyze knowledge/ and report health status."
     pattern: event-driven
@@ -34,7 +34,7 @@ capabilities:
       - "Structure and staleness metrics"
     verification: "Health status displayed with metrics"
 
-  HK-002:
+  R-HK-002:
     domain: structure
     statement: "The SKILL shall verify knowledge/ directory exists."
     pattern: ubiquitous
@@ -43,7 +43,7 @@ capabilities:
       - "KB exists: yes | no"
     verification: "Directory existence checked"
 
-  HK-003:
+  R-HK-003:
     domain: structure
     statement: "The SKILL shall check for README.md in knowledge/."
     pattern: ubiquitous
@@ -52,7 +52,7 @@ capabilities:
       - "README: yes | no"
     verification: "README presence checked"
 
-  HK-004:
+  R-HK-004:
     domain: staleness
     statement: "The SKILL shall count files not modified in 90+ days and calculate percentage."
     pattern: ubiquitous
@@ -61,7 +61,7 @@ capabilities:
       - ">90 days: count (percentage)"
     verification: "Staleness calculated accurately"
 
-  HK-005:
+  R-HK-005:
     domain: staleness
     statement: "The SKILL shall count files not modified in 180+ days and calculate percentage."
     pattern: ubiquitous
@@ -70,21 +70,21 @@ capabilities:
       - ">180 days: count (percentage)"
     verification: "Deep staleness calculated"
 
-  HK-006:
+  R-HK-006:
     domain: thresholds
     statement: "WHEN knowledge/ is missing, the SKILL shall report CRITICAL."
     pattern: conditional
     priority: critical
     verification: "CRITICAL when KB missing"
 
-  HK-007:
+  R-HK-007:
     domain: thresholds
     statement: "WHEN staleness (180+) exceeds 25% OR staleness (90+) exceeds 50%, the SKILL shall report CRITICAL."
     pattern: conditional
     priority: high
     verification: "CRITICAL at staleness threshold"
 
-  HK-008:
+  R-HK-008:
     domain: thresholds
     statement: "WHEN README missing OR staleness (180+) exceeds 10% OR staleness (90+) exceeds 25%, the SKILL shall report WARN."
     pattern: conditional
@@ -93,7 +93,7 @@ capabilities:
 
 test_cases:
   T-HK-001:
-    capability: "HK-001"
+    capability: "R-HK-001"
     scenario: "Healthy knowledge base"
     given: "knowledge/ exists with 14 files, <25% stale"
     when: "User runs `/aget-check-kb`"
@@ -101,7 +101,7 @@ test_cases:
     verification_method: "automated"
 
   T-HK-002:
-    capability: "HK-006"
+    capability: "R-HK-006"
     scenario: "Missing knowledge directory"
     given: "knowledge/ does not exist"
     when: "User runs `/aget-check-kb`"
@@ -109,7 +109,7 @@ test_cases:
     verification_method: "manual"
 
   T-HK-003:
-    capability: "HK-005"
+    capability: "R-HK-005"
     scenario: "Stale content detected"
     given: "30% of files not modified in 180+ days"
     when: "User runs `/aget-check-kb`"

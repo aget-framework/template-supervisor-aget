@@ -3,6 +3,9 @@
 
 Tests that required directories exist for supervisor template.
 Part of AGET framework v2.5+ standards.
+
+Validates: CAP-TPL-001 (.aget/ structure), CAP-TPL-002 (version.json),
+           CAP-TPL-004 (AGENTS.md)
 """
 
 import pytest
@@ -10,7 +13,7 @@ from pathlib import Path
 
 
 def test_core_directories_exist():
-    """Core AGET directories must exist."""
+    """Core AGET directories must exist. [CAP-TPL-001]"""
     required_dirs = [
         ".aget",
         "docs",
@@ -28,7 +31,7 @@ def test_core_directories_exist():
 
 
 def test_aget_subdirectories_exist():
-    """Required .aget subdirectories must exist."""
+    """Required .aget subdirectories must exist. [CAP-TPL-001]"""
     required_subdirs = [
         ".aget/evolution",
         ".aget/checkpoints",
@@ -43,21 +46,21 @@ def test_aget_subdirectories_exist():
 
 
 def test_version_json_exists():
-    """version.json must exist in .aget/."""
+    """version.json must exist in .aget/. [CAP-TPL-002]"""
     version_file = Path(".aget/version.json")
     assert version_file.exists(), "version.json not found in .aget/"
     assert version_file.is_file(), "version.json should be a file"
 
 
 def test_agents_md_exists():
-    """AGENTS.md must exist at root."""
+    """AGENTS.md must exist at root. [CAP-TPL-004]"""
     agents_md = Path("AGENTS.md")
     assert agents_md.exists(), "AGENTS.md not found"
     assert agents_md.is_file(), "AGENTS.md should be a file"
 
 
 def test_claude_md_symlink():
-    """CLAUDE.md must be symlink to AGENTS.md."""
+    """CLAUDE.md must be symlink to AGENTS.md. [CAP-TPL-004]"""
     claude_md = Path("CLAUDE.md")
     assert claude_md.exists(), "CLAUDE.md not found"
     assert claude_md.is_symlink(), "CLAUDE.md must be a symlink to AGENTS.md"

@@ -1,0 +1,23 @@
+{
+  "wake_up": {
+    "display_sections": [
+      "identity",
+      "version",
+      "north_star",
+      "archetype",
+      "active_projects",
+      "version_delta"
+    ],
+    "show_extension": true
+  },
+  "wind_down": {
+    "run_sanity_check": true,
+    "create_session_log": true,
+    "show_extension": true,
+    "suggest_commit": true
+  },
+  "extensions": {
+    "wake_up_ext": "scripts/wake_up_ext.py",
+    "wind_down_ext": "scripts/wind_down_ext.py"
+  }
+}

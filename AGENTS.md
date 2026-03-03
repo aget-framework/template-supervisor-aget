@@ -127,6 +127,43 @@ See: `governance/MEMORY_VISION.md`
 
 ---
 
+## Skill Routing
+
+| Task | Skill | When to Use |
+|------|-------|-------------|
+| Start session | /aget-wake-up | Beginning of every session |
+| End session | /aget-wind-down | End of every session |
+| Research topic | /aget-study-up | Before proposing changes |
+| Record learning | /aget-record-lesson | After discovering reusable insight |
+| Create project | /aget-create-project | Starting multi-gate work |
+| Review project | /aget-review-project | Mid-flight assessment |
+| File issue | /aget-file-issue | Reporting bugs or gaps |
+| Check health | /aget-check-health | Verifying agent structure |
+| Check fleet | /aget-check-fleet | Fleet-wide health and version audit |
+| Review agent | /aget-review-agent | Assessing subordinate agent quality |
+
+## Prohibitive Constraints
+
+The following actions are NEVER permitted regardless of context:
+
+- NEVER modify files outside this agent's repository without explicit principal approval
+- NEVER commit secrets, credentials, or API keys to version control
+- NEVER delete L-docs, governance files, or session artifacts without explicit instruction
+- NEVER directly modify subordinate agent files without using governance handoff protocols
+
+## Write Scope
+
+| Target | Allowed | Notes |
+|--------|---------|-------|
+| This agent's `.aget/` | YES | Own configuration and evolution |
+| This agent's `planning/`, `sessions/`, `docs/` | YES | Own operational artifacts |
+| This agent's `.claude/skills/` | YES | Own skill customizations (Instance_Artifacts only) |
+| Subordinate agents (via handoff) | YES | Via governance handoff protocols only (L100 checkpoint) |
+| Other supervisors' repositories | NO | Cross-KB write requires principal mediation |
+| Public framework repos (`aget-framework/*`) | NO | Requires release governance (SOP_release_process.md) |
+
+---
+
 ## Portfolio Configuration (v2.8.0)
 
 **Purpose**: Organize supervised agents by sensitivity level for fleet coordination and governance.

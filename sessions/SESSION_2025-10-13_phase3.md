@@ -27,7 +27,7 @@ tool_calls: ~40
 
 **Changes**:
 - version.json: 2.6.0 → 2.7.0
-- Added `portfolio` field (null for templates, main/example/workco for instances)
+- Added `portfolio` field (null for templates, main/example/custom for instances)
 - Portfolio configuration section added to AGENTS.md
 - Contract test `test_portfolio_field_exists` added
 - All tests passing (4/4)
@@ -56,7 +56,7 @@ tool_calls: ~40
 
 **Portfolio-Persona Examples**:
 - Coach + EXAMPLE = Personal executive coaching
-- Consultant + WORKCO = Proprietary domain consulting
+- Consultant + CUSTOM = Proprietary domain consulting
 - Teacher + Main = General technical instruction
 
 **Files Modified**: 3
@@ -155,7 +155,7 @@ tool_calls: ~40
 
 **Gate 3.6**: Portfolio Classification Validation (USER APPROVAL REQUIRED)
 - Present 3 portfolio manifests
-- Confirm EXAMPLE=very_personal, WORKCO=confidential, Main=private
+- Confirm EXAMPLE=very_personal, CUSTOM=confidential, Main=private
 - User must explicitly approve before Phase 4
 
 **Gate 3.7**: Template Integration Smoke Test (~1-2h)

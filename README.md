@@ -2,7 +2,7 @@
 
 > Coordinate agent fleets with broadcast, review, and escalation capabilities
 
-**Version**: v3.7.0 | **Archetype**: Supervisor | **Skills**: 6 specialized + 15 universal
+**Version**: v3.8.0 | **Archetype**: Supervisor | **Skills**: 6 specialized + 15 universal
 
 ---
 
@@ -121,7 +121,7 @@ Skills are provided by the template. Agents and rules directories are scaffolded
 
 | Attribute | Value |
 |-----------|-------|
-| **Framework** | [AGET v3.7.0](https://github.com/aget-framework/aget) |
+| **Framework** | [AGET v3.8.0](https://github.com/aget-framework/aget) |
 | **Archetype** | Supervisor |
 | **Skills** | 21 total (6 archetype + 15 universal) |
 | **Ontology** | 8 concepts, 3 clusters |

@@ -19,5 +19,9 @@
   "extensions": {
     "wake_up_ext": "scripts/wake_up_ext.py",
     "wind_down_ext": "scripts/wind_down_ext.py"
+  },
+  "release_discovery": {
+    "enabled": true,
+    "upstream_repo": "aget-framework/aget"
   }
 }

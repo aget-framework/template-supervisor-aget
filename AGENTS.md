@@ -133,7 +133,7 @@ See: `governance/MEMORY_VISION.md`
 |------|-------|-------------|
 | Start session | /aget-wake-up | Beginning of every session |
 | End session | /aget-wind-down | End of every session |
-| Research topic | /aget-study-up | Before proposing changes |
+| Research topic | /aget-study-topic | Before proposing changes |
 | Record learning | /aget-record-lesson | After discovering reusable insight |
 | Create project | /aget-create-project | Starting multi-gate work |
 | Review project | /aget-review-project | Mid-flight assessment |

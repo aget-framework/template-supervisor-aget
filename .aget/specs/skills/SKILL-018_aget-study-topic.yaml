@@ -1,12 +1,12 @@
-# SKILL-018: aget-study-up
+# SKILL-018: aget-study-topic
 # Purpose: Focused KB research on a specific topic before implementation
 # Created: 2026-02-27
 # Based on: CAP-SESSION-007, L335, L187, SKILL_SPEC_TEMPLATE.yaml
-# Note: Skill directory is currently aget-studyup (rename to aget-study-up pending P2.10 G3.5)
+# Note: Skill directory is currently aget-studyup (rename to aget-study-topic pending P2.10 G3.5)
 
 spec:
   id: SKILL-018
-  name: aget-study-up
+  name: aget-study-topic
   version: 1.0.0
   status: production
   created: 2026-02-27

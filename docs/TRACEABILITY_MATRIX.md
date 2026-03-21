@@ -62,7 +62,7 @@ Bidirectional traceability between requirements, specifications, tests, and impl
 | SKILL-005 | aget-check-sessions | R-HS-001..007 (7) | T-HS-001..003 (3) | C-HS-001..002 (2) | Specified |
 | SKILL-006 | aget-check-kb | R-HK-001..008 (8) | T-HK-001..003 (3) | C-HK-001..002 (2) | Specified |
 | SKILL-007 | aget-record-lesson | R-RL-001..006 (6) | T-RL-001..003 (3) | C-RL-001..003 (3) | Specified |
-| SKILL-008 | aget-capture-observation | R-CO-001..006 (6) | T-CO-001..003 (3) | C-CO-001..003 (3) | Specified |
+| SKILL-008 | aget-record-observation | R-CO-001..006 (6) | T-CO-001..003 (3) | C-CO-001..003 (3) | Specified |
 | SKILL-009 | aget-propose-skill | R-PS-001..007 (7) | T-PS-001..003 (3) | C-PS-001..002 (2) | Specified |
 | SKILL-010 | aget-review-project | R-RP-001..007 (7) | T-RP-001..003 (3) | C-RP-001..003 (3) | Specified |
 | SKILL-011 | aget-create-project | R-CP-001..007 (7) | T-CP-001..003 (3) | C-CP-001..004 (4) | Specified |
@@ -72,7 +72,7 @@ Bidirectional traceability between requirements, specifications, tests, and impl
 | SKILL-015 | aget-escalate-issue | R-EI-001..005 (5) | T-EI-001..003 (3) | C-EI-001..003 (3) | Specified |
 | SKILL-016 | aget-file-issue | R-FI-001..006 (6) | T-FI-001..003 (3) | C-FI-001..006 (6) | Specified |
 | SKILL-017 | aget-review-agent | R-RA-001..005 (5) | T-RA-001..003 (3) | C-RA-001..003 (3) | Specified |
-| SKILL-018 | aget-study-up | R-SU-001..006 (6) | T-SU-001..003 (3) | C-SU-001..003 (3) | Specified |
+| SKILL-018 | aget-study-topic | R-SU-001..006 (6) | T-SU-001..003 (3) | C-SU-001..003 (3) | Specified |
 | SKILL-019 | aget-create-aget | R-CA-001..006 (6) | T-CA-001..003 (3) | C-CA-001..003 (3) | Specified |
 
 **Coverage: 19/19 skills specified (100%)**

@@ -58,7 +58,7 @@ The primary value of persistent memory is better human decisions. Agents accumul
 |---------|---------|----------|
 | Step Back / Review KB | "step back. review kb." | Systematic search across 5 KB areas before proposing |
 | Session Handoff | Wind-down protocol | Capture pending work, decisions, context for next session |
-| Study Up | `/aget-study-up <topic>` | Focused search on specific topic across KB |
+| Study Up | `/aget-study-topic <topic>` | Focused search on specific topic across KB |
 | Pre-Proposal KB Audit | Before substantial changes | Verify precedents, cite 3+ or note "novel" |
 
 ---

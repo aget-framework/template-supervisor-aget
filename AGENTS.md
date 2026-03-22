@@ -138,6 +138,7 @@ See: `governance/MEMORY_VISION.md`
 | Create project | /aget-create-project | Starting multi-gate work |
 | Review project | /aget-review-project | Mid-flight assessment |
 | File issue | /aget-file-issue | Reporting bugs or gaps |
+| Enhance spec | /aget-enhance-spec | Improving specification maturity |
 | Check health | /aget-check-health | Verifying agent structure |
 | Check fleet | /aget-check-fleet | Fleet-wide health and version audit |
 | Review agent | /aget-review-agent | Assessing subordinate agent quality |

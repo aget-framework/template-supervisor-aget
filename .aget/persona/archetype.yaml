@@ -21,6 +21,8 @@ archetype:
     - Work assignment
     - Standard enforcement
 
+  governance_intensity: rigorous
+
   anti_patterns:
     - Executing task-level work directly
     - Bypassing governance protocols

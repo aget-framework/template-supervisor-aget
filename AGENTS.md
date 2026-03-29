@@ -99,7 +99,14 @@ This enables:
 ## Decision Authority (L330, L342)
 
 | Decision Type | Supervisor Authority | Escalate To |
-|---------------|---------------------|-------------|
+|----
+
+### Governance Capabilities
+
+| Attribute | Value |
+|-----------|-------|
+| Governance Intensity | Rigorous |
+-----------|---------------------|-------------|
 | L-docs, specs, documentation | Autonomous | — |
 | Agent configuration changes | Autonomous | — |
 | Fleet-wide pattern deployment | Propose + validate | Human principal |

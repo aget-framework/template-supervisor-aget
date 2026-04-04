@@ -728,7 +728,7 @@ FILED → ROUTED → ASSIGNED → ACKNOWLEDGED → IN_PROGRESS → CLOSED
 
 ### Sanity Check
 When user says "sanity check":
-- Run: `python3 scripts/aget_housekeeping_protocol.py sanity-check` (if available)
+- Run: `python3 scripts/health_check.py sanity-check` (if available)
 - Verify critical components present and functional
 - Report system status: OK/DEGRADED/CRITICAL
 

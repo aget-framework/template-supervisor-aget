@@ -32,7 +32,7 @@ capabilities:
       - "Agent type (private fleet vs public)"
     outputs:
       - "Destination repository"
-    verification: "Private fleet agents route to gmelli/aget-aget; public agents route to aget-framework/aget"
+    verification: "Private fleet agents route to {private-tracker}; public agents route to aget-framework/aget"
 
   R-FI-002:
     domain: sanitization
@@ -88,7 +88,7 @@ test_cases:
     scenario: "Private agent routes to private repo"
     given: "Agent is private-supervisor-AGET type"
     when: "Issue filed"
-    then: "Destination is gmelli/aget-aget"
+    then: "Destination is {private-tracker}"
     verification_method: "manual"
 
   T-FI-002:

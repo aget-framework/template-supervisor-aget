@@ -368,7 +368,7 @@ Exit codes:
     )
     parser.add_argument(
         '--pretty', action='store_true',
-        help='Pretty-printed JSON output',
+        help='Pretty-print JSON output',
     )
     parser.add_argument(
         '--dir', type=Path,

@@ -1,8 +1,8 @@
 {
-  "aget_version": "3.14.0",
+  "aget_version": "3.15.0",
   "manifest_version": "3.0",
   "created": "2025-09-24",
-  "updated": "2026-04-18",
+  "updated": "2026-04-25",
   "template": "supervisor",
   "agent_name": "template-supervisor-aget",
   "instance_type": "template",
@@ -47,6 +47,7 @@
     "v3.10.0 -> v3.11.0: 2026-03-28",
     "v3.11.1 -> v3.12.0: 2026-04-04",
     "v3.12.0 -> v3.13.0: 2026-04-12",
-    "v3.13.0 -> v3.14.0: 2026-04-18"
+    "v3.13.0 -> v3.14.0: 2026-04-18",
+    "v3.14.0 -> v3.15.0: 2026-04-25"
   ]
 }

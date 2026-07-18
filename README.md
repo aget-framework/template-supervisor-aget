@@ -2,7 +2,7 @@
 
 > Coordinate agent fleets with broadcast, review, and escalation capabilities
 
-**Version**: v3.24.0 | **Archetype**: Supervisor | **Skills**: 6 specialized + 15 universal
+**Version**: v3.27.0 | **Archetype**: Supervisor | **Skills**: 6 specialized + 15 universal
 
 ---
 

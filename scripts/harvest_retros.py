@@ -6,9 +6,20 @@ Parse retrospective sections from completed PROJECT_PLANs and optionally
 session log YAML frontmatter. Outputs structured extraction with cross-plan
 theme clustering for improvement candidate identification.
 
-Implements: CAP-PP-006 (Stub Retrospective — harvest side)
+Consumes: CAP-PP-018 (Retrospective Requirements, AGET_PROJECT_PLAN_SPEC §612) — this script
+          harvests the sections CAP-PP-018 requires plans to contain.
+Implements: (no requirement) — the HARVEST side is ungoverned. See the note below.
+
+  Corrected 2026-08-08. This header read "Implements: CAP-PP-006 (Stub Retrospective —
+  harvest side)". AGET_PROJECT_PLAN_SPEC:282 defines CAP-PP-006 as **Risk Assessment**, and
+  REQUIREMENTS_MATRIX:123 agrees; there is no "Stub Retrospective" requirement under that ID or
+  any other. The citation resolved to real text about an unrelated subject — the failure mode
+  where a reader infers provenance rather than stopping. CAP-PP-018 is the genuine requirement
+  for the retrospective *content*; nothing governs harvesting it, which is recorded here as a
+  vacancy rather than papered over with a plausible-looking ID.
 See: PROJECT_PLAN_TEMPLATE.md Part 8 (4Ls retrospective sections)
-Related: CAP-PP-006 (Stub Retrospective), ADR-008 (Advisory to Strict)
+Related: CAP-PP-018 (Retrospective Requirements), CAP-REASON-008 (Release Retrospective, defined in
+         AGET_5D_COMPONENTS_SPEC), ADR-008 (Advisory to Strict)
 
 Scan scope:
     planning/PROJECT_PLAN_*.md

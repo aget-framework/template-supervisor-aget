@@ -1,3 +1,8 @@
+---
+name: aget-create-aget
+description: "Create a new AGET agent instance using the ontology-driven creation workflow."
+---
+
 # /aget-create-aget
 
 Create a new AGET agent instance using the ontology-driven creation workflow.

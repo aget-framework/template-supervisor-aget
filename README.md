@@ -2,7 +2,7 @@
 
 > Coordinate agent fleets with broadcast, review, and escalation capabilities
 
-**Version**: v3.34.0 | **Archetype**: Supervisor | **Skills**: 6 specialized + 15 universal
+**Version**: v3.34.0 | **Archetype**: Supervisor | **Skills**: 44 installed; 29 required universal
 
 ---
 
@@ -123,7 +123,7 @@ Skills are provided by the template. Agents and rules directories are scaffolded
 |-----------|-------|
 | **Framework** | [AGET v3.34.0](https://github.com/aget-framework/aget) |
 | **Archetype** | Supervisor |
-| **Skills** | 21 total (6 archetype + 15 universal) |
+| **Skills** | 44 installed (29 required universal + 15 additional); see `.claude/skills/` |
 | **Ontology** | 8 concepts, 3 clusters |
 | **License** | Apache 2.0 |
 

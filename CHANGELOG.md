@@ -1,5 +1,15 @@
 # Changelog
 
+## [3.36.0] - 2026-10-03 - "Fleet migration kit for supervisors"
+
+### Fixed
+- `scripts/study_topic.py`: a search whose only hits fall below the score floor no longer prints a novel-topic verdict; it reports that suppressed hits exist.
+
+### Changed
+- Advanced the template's framework identity and migration history to v3.36.0.
+- No other template payload changes in this release. The fleet migration kit ships in the core repository (`scripts/migration_kit/`) and is not copied into this template.
+- Not in this release: the repaired `scripts/close_authorization_guard.py`. This template still ships the guard at its 3.34.0 version; the repair is deferred to the next release. See `handoffs/CORRECTIONS_v3.35.0.md` rows 4 and 5 in `aget-framework/aget` for what to do until then.
+
 ## [3.35.1] - 2026-10-04 - "Weekly train"
 
 ### Fixed

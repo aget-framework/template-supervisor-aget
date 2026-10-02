@@ -8,7 +8,7 @@ template:
   name: template-supervisor-aget
   archetype: Supervisor
   description: Supervisory template for fleet coordination and governance
-  version: 3.4.0
+  version: 3.36.0
   created: "2025-12-27"
   author: AGET Framework Team
   inherits_from: template-worker-aget

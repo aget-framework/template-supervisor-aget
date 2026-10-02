@@ -25,7 +25,7 @@ AGET occupies a unique niche in the agent framework landscape:
 - Human-centric governance (gated releases, evidence-based planning)
 
 ## Project Context
-template-supervisor-aget - Supervisor AGET template - v3.13.0
+template-supervisor-aget - Supervisor AGET template - v3.36.0
 
 **Note**: Update this section when instantiating template:
 - Change project name to your supervisor agent name

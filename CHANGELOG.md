@@ -1,12 +1,11 @@
 # Changelog
 
-## [3.36.0] - 2026-10-03 - "Fleet migration kit for supervisors"
-
-### Fixed
-- `scripts/study_topic.py`: a search whose only hits fall below the score floor no longer prints a novel-topic verdict; it reports that suppressed hits exist.
+## [3.36.0] - 2026-10-10 - "Fleet migration kit for supervisors"
 
 ### Changed
-- The 2026-04-12 migration record under `.aget/evolution/` no longer carries the maintainer's local home path: the backup path it records now starts with `~`.
+- Round 2 reconciles the 3.36.0 updated/history dates to 2026-10-10 and replaces private producing-Aget authorship/provenance and internal fleet-upgrade references with public attribution and generic references. Runtime payload behaviour is unchanged.
+- From v3.35.1, this template already carries the `scripts/study_topic.py` fix; it is unchanged in v3.36.0.
+- The 2026-04-12 migration record under `.aget/evolution/` no longer carries the maintainer's local home path: the backup path it records now starts with `<framework-root>`.
 - `manifest.yaml` `template.version` now reads 3.36.0. It had stayed at 3.4.0 since January 2026 while the other version fields moved.
 - The project-context line in `AGENTS.md` now ends `v3.36.0`. It had stayed at `v3.13.0`.
 - Advanced the template's framework identity and migration history to v3.36.0.
@@ -179,7 +178,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Framework v3.18.0 Highlights
 
 - `AGET_MEMORY_SURFACE_SPEC v0.2.0` canonical promotion (T1.16 + T2.37) — harness-vs-KB taxonomy formalized
-- Verb Registry Currency (T1.9 = PP-021) — 37 Active + 4 Reserved verbs + 11 §Hierarchy Decisions pairs
+- Verb Registry Currency (T1.9 = prior authoring project) — 37 Active + 4 Reserved verbs + 11 §Hierarchy Decisions pairs
 - `/aget-create-initiative` Strict promotion (T2.46) — D71 verb-pair gap closed
 - Homepage Fork C Hybrid (T1.12) — L941-L944 cluster closed structurally
 - L908 family memory-layer closure (L960 + L963 + L964 graduated)

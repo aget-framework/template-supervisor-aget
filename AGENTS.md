@@ -1,7 +1,7 @@
 # Agent Configuration
 
-@aget-version: 3.36.0
-@aget-canonical-specs: https://github.com/aget-framework/aget/tree/v3.36.0/specs — reliance-only conformance (D-1, 2026-07-04): this template runs the version's features; specs are canonical-referenced, not copied locally
+@aget-version: 3.37.0
+@aget-canonical-specs: https://github.com/aget-framework/aget/tree/v3.37.0/specs — reliance-only conformance (D-1, 2026-07-04): this template runs the version's features; specs are canonical-referenced, not copied locally
 
 ## Agent Compatibility
 This configuration follows the AGENTS.md open-source standard for universal agent configuration.
@@ -25,7 +25,7 @@ AGET occupies a unique niche in the agent framework landscape:
 - Human-centric governance (gated releases, evidence-based planning)
 
 ## Project Context
-template-supervisor-aget - Supervisor AGET template - v3.36.0
+template-supervisor-aget - Supervisor AGET template - v3.37.0
 
 **Note**: Update this section when instantiating template:
 - Change project name to your supervisor agent name
